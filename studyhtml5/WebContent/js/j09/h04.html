@@ -1,0 +1,64 @@
+<!-- 속성의 추가와 삭제
+1. getAttribute() : 요소의 속성값을 취득한다.
+2. setAttribute() : 요소의  속성을 설정한다.
+3. removeAttribute() : 요소의 속성을 제거한다. -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+      div{
+        position : fixed;
+        left : 100px;
+        top : 10px;
+        width : 200px;
+        heigth : 200px;
+        background : #718c00;
+   };
+
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+   function createAttribute(){
+	   console.log(`createAttribute`);
+       
+       let bt = document.getElementById('bt');
+       
+       function popup(){
+           // console.log(`popup`);
+           let div = document.createElement('div');
+           let a = document.createElement('a');
+           let txt = document.createTextNode('PCWK Cafe');
+           
+           // a > txt
+           // <a>PCWK Cafe</a>
+           a.appendChild(txt);
+           
+           // href추가
+           a.setAttribute('href','https://cafe.daum.net/pcwk');
+           a.setAttribute('target', '_blank');
+           a.setAttribute('title', '새 탭');
+           
+           // div > a
+           div.appendChild(a);
+           
+           // body에 div추가
+           document.body.appendChild(div);
+       };
+       
+       bt.onclick = popup;
+   };
+   
+   addEventListener('load', createAttribute);
+
+</script>
+</head>
+<body>
+    <button id="bt">요소 속성 생성</button>
+    
+</body>
+</html>

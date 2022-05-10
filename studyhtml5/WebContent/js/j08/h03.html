@@ -1,0 +1,52 @@
+<!-- 캡처링 : 이벤트엔 버블링 이외에도 캡처링이라는 흐름이 존재한다. 실제 코드에서는 자주 쓰이지 않는다. 
+    DOM 이벤트에서 정의한 이벤트 흐름 3가지 단계
+    1. 캡처링 단계 : 이벤트가 하위 요소로 전파
+    2. 타깃 단계 : 이벤트가 타깃요소에 전달되는 단계
+    3. 버블링 단계 : 이벤트가 상위 요소로 전파되는 단계
+    
+    <td>를 클릭하면 이벤트가 최상위 조상에서 시작해 아래로 전파(캡처링),
+    이벤트가 타깃 요소에 도착해 실행된 후 (타깃단계), 다시 위로 전파(버블링 단계)
+     -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+    form,div,input{
+        margin : 12px;
+        border : 1px solid red;
+    }
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+</head>
+<body>
+   <h2></h2>
+   <p></p>
+   <hr/>
+   
+   <form action ="#" >
+    <div onclick="event.stopPropagation();">
+        <input type="submit" onclick="alert('submit')" value='클릭'>
+    </div>
+    </form>
+    <script type="text/javascript">
+       for(let elem of document.querySelectorAll('*')){
+    	   // capture option
+    	   // false : 버블링 단계에서 동작(default)
+    	   // ture : 캡처링 단계에서 동작
+    	   
+    	   // 캡처링 단계
+    	   elem.addEventListener('click', e=>alert(`캡처링:${elem.tagName}`), true)
+    	   
+    	   // 버블링 단계
+    	   elem.addEventListener('click', e=>alert(`버블링:${elem.tagName}`))
+       }
+    </script>
+</body>
+</html>

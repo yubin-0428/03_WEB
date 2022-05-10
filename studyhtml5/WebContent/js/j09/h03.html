@@ -1,0 +1,53 @@
+<!-- 요소의 속성의 생성 및 삭제 : 요소를 생성하고 관계를 만들어준다.
+1. createElement() : 요소를 생성하는 메서드
+2. createTextNode() : 텍스트를 생성하는 메서드
+3. appendChild() : 요소를 부모와 자식 관계로 만들어주는 메서드 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+   div{
+        position : fixed;
+        left : 100px;
+        top : 10px;
+        width : 200px;
+        heigth : 200px;
+        background : #718c00;
+   }
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+   window.onload = function(){
+	   let bt = document.getElementById('bt');
+	   
+	   function popup(){
+		   console.log(`popup`);  
+		   let div = document.createElement('div');
+		   let p = document.createElement('p');
+		   let txt = document.createTextNode('오늘은 16:00까지 수업합니다^^');
+		   
+		   // div > p > txt
+		   p.appendChild(txt);
+		   
+		   // div > p
+		   div.appendChild(p)
+	   
+		   // body > div
+		   document.body.appendChild(div);    
+	   };
+	   // 버튼 클릭 이벤트 감지
+	   bt.onclick = popup;
+   };
+</script>
+</head>
+<body>
+    <button id = "bt">요소생성</button>
+   
+</body>
+</html>

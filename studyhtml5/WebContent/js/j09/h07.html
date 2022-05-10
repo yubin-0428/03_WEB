@@ -1,0 +1,51 @@
+<!-- form 객체 : form은 document객체의 하위 객체중 하나 입니다.
+          form객체를 이용하면 form의 유효성 검사를 수행할 수 있다.
+(form객체 선택 : form객체에서 name속성으로 form요소를 선택) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+   window.onload = function(){
+	   console.log(`window.onload`);
+	   
+	   let frm1 = document.frm1;
+	   let frm2 = document.frm2;
+	   
+	   // 검색어.placeholder 선택
+	   console.log(`frm1.search.placeholder:${frm1.search.placeholder}`);
+	   // frm2.subject.placeholder : 과목입력
+	   console.log(`frm1.search.placeholder:${frm1.search.placeholder}`);
+  
+	   console.log(`document.forms[0].elements[0].placeholder:${document.forms[0].elements[0].placeholder}`);
+	   // document.forms[1][1].placeholder : 학점입력
+	   console.log(`document.forms[1][1].placeholder:${document.forms[1][1].placeholder}`);
+	   
+	   // 요소이름으로 접근
+	   console.log(`document.forms['frm1'].elements['search'].placeholder:${document.forms['frm1'].elements['search'].placeholder}`);
+	   console.log(`document.forms['frm2']['subject'].placeholder:${document.forms['frm2']['subject'].placeholder}`);
+   };
+   
+</script>
+</head>
+<body>
+    <form action="#" name="frm1">
+        <input type="text" name="Search" placeholder="검색어입력">
+        <input type="submit" value="확인">
+    </form>
+    <form action="#" name="frm2">
+        <input type="text" name="subject" placeholder="과목입력">
+        <input type="text" name="subject" placeholder="학점입력">
+        <input type="submit" value="확인">
+    </form>
+</body>
+</html>

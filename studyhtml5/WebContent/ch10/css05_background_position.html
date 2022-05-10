@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+<title>Insert title here</title>
+<!--스타일 시트 -->
+<style type="text/css">
+ li {
+    list-style-type: none;
+    margin: 5px;
+ }
+ 
+ .lnb li a {
+   display: block;
+   padding-left: 30px;
+   text-decoration: none;  
+   font: 25px Times;
+   color: #000000;
+   background: url("/studyhtml5/imgs/bg_sprite.png") no-repeat;
+   background-size: 26px 176px;
+ }     
+       
+ .lnb li:nth-child(1) a {
+	background-position: 0 0;   
+ }  
+ .lnb li:nth-child(2) a {
+    background-position: 0 -50px;   
+ }  
+ 
+ .lnb li:nth-child(3) a {
+    background-position: 0 -100px;   
+ } 
+ 
+/*  .lnb li:nth-child(4) a {
+    background-position: 0 -150px;   
+ }   */
+ 
+   .lnb li .lnb_rabbit {
+    background-position: 0 -150px;   
+ } 
+</style>
+</head>
+<body>
+   <h2>background-position</h2>
+   <hr/>
+   <ul class="lnb">
+     <li><a href="#">Theater</a> </li>
+     <li><a href="#">Secret Garden</a> </li>
+     <li><a href="#">Concert Hall</a> </li>
+     <li><a href="#" class="lnb_rabbit">Animal Farm</a> </li>
+   
+   </ul>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--bootstrap CDN -->
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- jquery lib -->
+<script
+  src="https://code.jquery.com/jquery-1.12.4.js"
+  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+  crossorigin="anonymous"></script>
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+            <!-- div container -->
+            <div class = "container">
+                <!-- 제목 -->
+                <div class="page-header">
+                    <h2>게시 등록</h2>
+                </div>
+                <!--  // 제목-------------------------------------- -->
+                
+                <!-- 버튼 -->
+                <div class="row text-right">
+                    <label class="col-sm-3 col-md-2 col-lg-2"></label>
+                    <div class="col-sm-9 col-md-10 col-lg-10">
+                        <input type="button" class="btn brn-primary brn-sm" value="목록">
+                        <input type="button" class="btn brn-primary brn-sm" value="등록">
+                    </div>
+                </div>
+                <!-- // 버튼------------------- -->
+                
+                <!-- form -->
+                    <form action="" class="form-horizontal">
+                        <div class="form-group">
+                            <label for= "title" class= "col-sm-3 col-md-2 col-lg-2 control-label">제목</label>
+                            <div class= "col-sm-9 col-md-10 col-lg-10">
+                                <input type="text" name="title" id="title" placeholder="제목" class="form-control">
+                            </div>    
+                        </div>
+                    
+                    <div class="form-group">
+                        <label for= "title" class= "col-sm-3 col-md-2 col-lg-2 control-label">구분</label>
+                        <div class= "col-sm-9 col-md-10 col-lg-10">
+                            <select name="div" id="div" class="form-control">
+                                <option value="10">공지사항</option>
+                                <option value="20">자유게시판</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                   <div class="form-group">
+                        <label for= "regId" class= "col-sm-3 col-md-2 col-lg-2 control-label">등록자</label>
+                        <div class= "col-sm-9 col-md-10 col-lg-10">
+                            <input type="text" maxlength="100" name="regId" id="regId" placeholder="등록자" class="form-control">
+                        </div>
+                   </div>
+                    
+                    <!-- 내용 -->
+                    <div class="form-group">
+                        <label for= "regId" class= "col-sm-3 col-md-2 col-lg-2 control-label">내용</label>
+                        <div class= "col-sm-9 col-md-10 col-lg-10">
+                            <textarea rows="5" cols="20" name="contents" id="regId" placeholder="내용" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- // 내용------------------------------- -->
+                    
+                    </form >
+                <!-- // form---------------------- -->
+            </div>
+            <!-- // div container---------------------------- -->
+</body>
+</html>

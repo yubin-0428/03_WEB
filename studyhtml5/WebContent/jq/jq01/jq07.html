@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="/studyhtml5/favicon.ico">
+<!-- reset 스타일 시트 -->
+<link rel="stylesheet" type="text/css" href="/studyhtml5/asset/css/reset.css">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+
+<!-- jquery -->
+<script type="text/javascript" src="/studyhtml5/asset/js/jquery-1.12.4.js"></script>
+
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+   $(document).ready(function(){
+       //console.log('PCWK *** document'); 
+       
+	   let city =["청와대", "한강","부산","집", "속초"];
+	   
+	   // copy해서 새로운 배열 생성
+	   let newCity = $.map(City, function(value, i){
+		   if(i<2){
+			   return value;
+		   } 
+	   });
+   });
+</script>
+</head>
+<body>
+   <h2></h2>
+   <hr/>  
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+<title>Insert title here</title>
+<!--스타일 시트 -->
+<style type="text/css">
+  p {
+    width: 200px;
+    text-align: center;
+    border: 1px solid #000;
+  }
+  
+  .breaking1 {
+    word-break: normal;
+  }
+  
+  .breaking2 {
+    word-break: break-all;
+  }  
+  
+  .breaking3 {
+    word-break: keep-all;
+    word-wrap: break-word;
+  }    
+</style>        
+</head>  
+<body>
+   <h2>word-break</h2>
+   <hr/>
+   
+   <p class="breaking1">
+    홍길동<br/>
+    한국사회역사연구회 고고학과 전입교수<br/>
+  notonstyleinggood@naver.com
+   </p>
+   
+   <p class="breaking2">
+    홍길동<br/>
+    한국사회역사연구회 고고학과 전입교수<br/>
+  notonstyleinggood@naver.com
+   </p>
+   
+   <p class="breaking3">
+    홍길동<br/>
+    한국사회역사연구회 고고학과 전입교수<br/>
+  notonstyleinggood@naver.com
+   </p>      
+</body>
+</html>

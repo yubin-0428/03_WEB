@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+<title>Insert title here</title>
+<!--스타일 시트 -->
+<style type="text/css">
+  
+   /*reset */
+   h1,h2,ul,li,p,div { margin: 0; padding: 0; box-sizing: border-box;}
+   /* list item에 블릿 제거 */ 
+   li { list-style: none;}
+   body { background: #f1f1f1; font-size: 13px;}
+   a { line-height: 1.5; color: #333;}
+   
+   h1 { font-size: 25px; color: #cc0; padding: 10px; }
+   h2 { font-size: 20px;} 
+    
+
+       
+   header{ 
+     
+     background: coral;
+   }
+   
+   .lnb li {
+     margin: 10px;
+     padding: 10px;   
+     background: lightgreen;
+   }
+   
+   .content {
+     padding: 20px;
+   }
+   
+   .ext{
+     margin: 10px;
+     padding: 20px;
+     background: lightgreen;
+   }
+   
+   footer{ 
+     background: #aaa;
+     padding: 10px;
+   }
+   
+   .clear:after {content:""; display:block; clear:both;} 
+   /*화면 너비가 767px :  모바일*/
+   
+   /* body{background: #004D40;color: #fff;}  */
+    
+   /*화면 너비가 768px~1024px :  테블릿*/
+   @media screen and  (min-width: 768px)  and  (max-width: 1024px){
+       /*  body{background: #4a148c;color: #fff;}  */
+
+       .lnb  {float: left; width: 25%;}
+       .content {float: left; width: 75%;}
+       .aside { clear:both; }
+      
+   }  
+     
+    /*화면 너비가 1025이상 : PC*/
+   @media screen and  (min-width: 1025px) {
+       /*최대크기 : 1280 */
+       /* body{background: #880e4f;color: #fff;}  */
+       .wrap { max-width: 1280px; margin: 0 auto;}
+       .lnb  {float: left; width: 20%;}
+       .content {float: left; width: 50%;}
+       .aside { float: right ; width: 30%; }
+       footer {clear:both; }
+   }
+</style>
+</head>
+<body>
+    <div class="wrap">
+      
+      <header>
+        <h1>MINI PROJECT</h1>
+      </header>
+      <div id="container" class="clear">
+        <div class="lnb">
+          <ul>
+            <li><a href="#">교육생 작품</a></li>
+            <li><a href="#">공지사항</a></li>
+            <li><a href="#">교육과정</a></li>
+          </ul>
+        </div>
+        <div class="content">
+            <h2>PICTURES</h2>
+            <p><a href="#">쇼핑몰</a><br/>
+               <a href="#">트위터</a><br/>
+               <a href="#">영화관</a><br/>
+               <a href="#">업무프로그램</a><br/>
+               <a href="#">음식소계</a><br/>
+               <a href="#">운동도움 </a>
+            </p>
+        </div>
+        <div class="aside">
+          <ul class="ext">
+             <li><h2>Spring</h2><a href="#">DI,AOP,IOC</a></li>
+             <li><h2>Oracle</h2><a href="#">SQL</a></li>
+             <li><h2>WEB</h2><a href="#">html,css,javascript</a></li>
+          </ul>
+        </di>
+      </div>
+      <footer >
+        <p>2022 PCWK edu. All rights reserved.</p>
+      </footer>
+      
+    </div>
+</body>
+</html>

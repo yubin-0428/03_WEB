@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="/studyhtml5/favicon.ico">
+<!-- reset 스타일 시트 -->
+<link rel="stylesheet" type="text/css" href="/studyhtml5/asset/css/reset.css">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+
+<!-- jquery -->
+<script type="text/javascript" src="/studyhtml5/asset/js/jquery-1.12.4.js"></script>
+
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+   $(document).ready(function(){
+       console.log('PCWK *** document');
+       // input:text
+       $('input:Text').css('background', 'red');
+       $('input:password').css('background', 'orange');
+       $(':button').css('background', 'yellow');
+       
+       /* 인접 선택자 '+' '*/
+       $('input:checked + label').css('background', 'green');
+       $('option:selected').css('color', 'blue');
+       $('textarea:disabled').css('background', 'pink');
+       
+       /* 가시성 필터 
+            : hidden   ex) div:hidden  div요소중 hidden인 요소
+            : visible  ex) div:visible div요소중 visible인요소
+        */
+        
+        // 내용1: 숨기기
+        console.log("divhidden ->" + $('div:hidden').text());
+        
+   });
+</script>
+
+<!--스타일 시트 -->
+<style type="text/css">
+        #vis{
+            display : none;
+            }
+</style>
+
+</head>
+<body>
+   <h2>폼 필터 : 폼에 요소를 필터링할 수 있음</h2>
+   <hr/>  
+   <div id="vis">내용1</div>
+   <div>내용2</div>
+   
+   <form action="#" method="get" name="frm">
+   <div>
+    <input type="text" id="user_id" name="user_id">
+   </div>
+   
+   <div>
+    <input type="text" id="pass" name="pass">
+   </div>
+   
+   <div>
+    <input type="checkbox" id="check01" name="check01" checked="checked">
+    <label for="check01">jquery</label>
+   </div>
+   
+   <div>
+    <button id="save">확인</button>
+   </div>
+   
+   <div>
+    <select name="subject" id="subject">
+        <option value="">전체</option>
+        <option value="10">JAVA</option>
+        <option value="20">ORACLE</option>
+        <option value="30">HTML</option>
+        <option value="40">CSS</option>
+        <option value="50">javascript</option>
+        <option value="60" selected="selected">JQUERY</option>
+    </select>
+   </div>
+   
+   <div>
+    <textarea rows="5" cols="20" id="contents" disabled="disabled"></textarea>
+   </div>
+   
+   </form>
+</body>
+</html>

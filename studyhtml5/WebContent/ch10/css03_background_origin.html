@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+<title>Insert title here</title>
+<!--스타일 시트 -->
+<style type="text/css">
+/*
+border-box              배경 이미지가 테두리 좌측 상단 모퉁이에서 시작 함.                                                       
+padding-box             배경 이미지가 안여백의 좌측 상단 모퉁이에서 시작함(default)                                                       
+content-box             배경 이미지가 콘텐츠의 좌측 상단부터 시작                                                     
+*/
+div {
+    width: 550px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 15px double rgba(0,0,0,0.6);
+    background: url("/studyhtml5/imgs/bg_origin.png") no-repeat;
+}
+.ori01{ 
+    background-origin: border-box;
+}
+.ori02{ 
+    background-origin: padding-box;
+}
+.ori03{ 
+    background-origin: content-box;
+}
+</style>
+</head>
+<body>
+   <h2>background-origin</h2>
+   <hr/>
+   <div class="ori01">배경 이미지가 테두리 좌측 상단 모퉁이에서 시작 함. </div>
+   <div class="ori02">배경 이미지가 안여백의 좌측 상단 모퉁이에서 시작함(default).       </div>
+   <div class="ori03">배경 이미지가 콘텐츠의 좌측 상단부터 시작 ).       </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

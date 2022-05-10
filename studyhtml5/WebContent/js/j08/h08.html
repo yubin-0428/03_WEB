@@ -1,0 +1,49 @@
+<!-- screen객체 : screen객체는 모니터 화면 정보 관련 객체
+    ex) POPUP화면을 정중앙에 오게 할 때 사용 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+    let w = window.screen.width;
+    let h = screen.height;
+
+    console.log(`screen.width:${w}, screen.height:${h}`);
+    
+    // h03, 600*400으로 center에 오게 팝업을 띄우세요.
+     window.onload = function(){
+       let bt = document.getElementById('btn');
+       bt.onclick = function(){
+    	   let url ='/studyhtml5/js/j08/h03.html';
+    	   let popupWidth = 600;
+    	   let popupHeight = 400;
+    	   
+    	   let leftValue = screen.width/2 - popupWidth/2;
+    	   let topValue = screen.height/2 - popupHeight/2;
+    	   
+    	   console.log(`left:${leftValue}, top:${topValue}`);
+    	   
+    	   window.open(url,"PCWK CAFE",'width=600,height=400,left='+leftValue+',top='+topValue+',location=yes,menubar=yes,toolbar=yes,status=yes,scrollbars=no');
+    	   
+           // 우리가 띄울 페이지, window팝업의 제목, 옵션
+            // window.open('https://cafe.daum.net/pcwk','pcwk', 'width=600, height=40, left =100, top = 10');      
+            // window.open('/studyhtml5/js/j08/h03.html','pcwk', 'width=600, height=40, left =100, top = 10');     
+            window.open('/studyhtml5/js/j08/h03.html','pcwk','toolbar=0, width=600, height=400');        
+       };      
+   };
+    
+</script>
+</head>
+<body>
+    <button id="btn">center팝업</button>
+</body>
+</html>

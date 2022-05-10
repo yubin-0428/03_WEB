@@ -1,0 +1,56 @@
+<!-- Html comment -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="keywords" content="html, css, javascript, jsp" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!-- 스타일 시트 -->
+<style type="text/css">
+    p:first-letter{
+        font-size:200%;
+    }
+    p:first-child{
+        color: green;
+    }
+    
+    p{
+        background :lightgray ;
+    }
+    
+    p:last-child{
+        background: palegoldenrod;
+    }
+    p:before{
+        content:"★"
+    }
+    
+    .box:after{
+        content:"점심메뉴를 선택하세요.";
+        color: red;    
+    }
+    
+    p:nth-child(3){
+        color:red;
+    }
+</style>
+
+<title>Insert title here</title>
+<!-- 자바스크립트 코드 -->
+<script type="text/javascript">
+   
+</script>
+</head>
+<body>
+   <h2>가상요소 선택자</h2>
+   <p>날짜:2022. 4. 21</p>
+   <hr/>
+   <div class="box">
+   <p> COMPANY  </p>
+   <p> PRODUCT  </p>
+   <p> SERVICE  </p>
+   <p> CUSTOMER </p>
+   </div>
+
+</body>
+</html>

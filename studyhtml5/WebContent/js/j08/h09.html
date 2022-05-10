@@ -1,0 +1,31 @@
+<!-- history객체 : 페이지가 이동한 정보를 관리하는 객체
+    --- 메서드 ---
+    1. back() : 이전 페이지로 이동
+    2. forward() : 이후 페이지로 이동
+    3. go() : go(n) 일 때 n값에 따라 양수이면 이후, 음수이면 이전페이지로 이동
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+</head>
+<body>
+   <h2>history()</h2>
+   <hr/>
+   
+   <button onclick="history.back();">back</button>
+   <button onclick="history.forward();">forward</button>
+   <button onclick="history.go(1);">go(1)</button>
+   <button onclick="history.go(-1);">go(-1)</button>
+</body>
+</html>

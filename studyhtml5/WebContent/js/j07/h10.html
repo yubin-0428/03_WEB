@@ -1,0 +1,43 @@
+<!-- 표준 이벤트 모델 : 객체.addEventListener('이벤트', 처리함수)  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+<script type="text/javascript">
+  // window에 html 엘리먼트가 로드 완료되면 발생!
+  window.onload = function() {
+     console.log(`window.onload`);
+     
+     // 버튼 객체 생성
+     let btn = document.getElementById('btnSave');
+      
+      // 처리함수
+      function view() {
+          alert('표준 이벤트 모델');
+      }
+      
+      // Event 감지, 처리는 view 함수에서 하시오
+      btn.addEventListener('click', view);
+  }
+</script>
+</head>
+<body>
+   <h2>표준 이벤트 모델</h2>
+   <hr/>
+   <input type="button" value="표준이벤트" id="btnSave" />
+   
+    <!--자바스크립트 코드 -->
+   <script type="text/javascript">
+     
+   </script>
+   
+</body>
+</html>

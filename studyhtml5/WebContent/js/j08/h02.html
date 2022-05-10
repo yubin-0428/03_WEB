@@ -1,0 +1,30 @@
+<!-- stopPropagation() -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+    form,div,input{
+        margin : 12px;
+        border : 1px solid red;
+    }
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+</head>
+<body>
+   <h2>브블링</h2>
+   <p>이벤트 버블링은 부모요소와 자식요소 모두의 이벤트가 연결되어 있을 경우, 자식요소의 이벤트를 실행했을 때 부모 요소의 이벤트도 같이 실행.</p>
+   <hr/>
+   
+   <form action ="#" onclick="alert('form');">
+    <div onclick="event.stopPropagation();">
+        <input type="submit" onclick="alert('submit')" value='클릭'>
+    </div>
+</body>
+</html>

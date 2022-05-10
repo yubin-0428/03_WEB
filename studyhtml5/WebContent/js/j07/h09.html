@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="/studyhtml5/favicon.ico">
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+  window.onload = function(){
+    
+     console.log(`window.onload`);
+    
+     let btn = document.getElementById('btn');
+     btn.onclick = function(){
+         alert('btn.onclick');
+     }
+       // 기본이벤트 모델로 다른 함수를 호출할때는 함수에()를 붙이지 않는다.
+       btn.onclick = view;
+       // btn.onclick = view(); 이벤트 강제 수행
+  };
+</script>
+<title>Insert title here</title>
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+</head>
+<body>
+   <h2></h2>
+   <hr/>
+   
+</body>
+</html>

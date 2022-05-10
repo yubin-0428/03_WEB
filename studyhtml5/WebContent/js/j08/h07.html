@@ -1,0 +1,41 @@
+<!-- location객체 : 웹브라우저의 주소 URL관련 객체
+          ---- 프로퍼티 ----
+    1. host : 주소의 호스명과 포트번호를 반환
+    2. port : 주소의 포트번호를 반환
+    3. pathname : 주소의 패스명을 반환 
+    4. href : 주소값을 반환
+    5. protocol : 주소의 프로토콜명을 반환
+    6. hash : 주소의 앵커명(#)을 반환 
+    
+         ---- 메서드 ----
+    1. reload() : 현재 페이지를 다시 로드
+    2. replace() : replace(url)일떄 url로 이동한다.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel = "short icon" type="image/x-icon" href="/studyhtml5/favicon.ico">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+window.onload = function(){};
+console.log(`location.host:${location.host}`);
+console.log(`window.location.port:${window.location.port}`);
+console.log(`window.location.protocol: ${window.location.protocol}`);
+console.log(`window.location.pathname: ${window.location.pathname}`);
+    
+</script>
+</head>
+<body>
+  <h2></h2>
+  <hr/>
+  <button onclick="javascript:location.reload();">reload</button>
+  <button onclick="location.replace('https://cafe.daum.net/pcwk')">replace</button>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!-- innerHtml : 문나 방식으로 요소를 생성하는 방식 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+      div{
+        position : fixed;
+        left : 100px;
+        top : 10px;
+        width : 200px;
+        heigth : 200px;
+        background : #718c00;
+   }
+   
+   .m1{
+     background : #fff;
+   }
+
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+    function createEle(){
+    	console.log(`createEle`);
+    	let content = document.getElementById('content');
+    	content.innerHTML = '<p class="m1">자바스크립트</p>';
+    }
+    
+    // addEventListener, 함수이름에() 붙일 필요 없음.
+    addEventListener('load', createEle);
+</script>
+</head>
+<body>
+    <div id ="content">
+        
+    </div>
+</body>
+</html>

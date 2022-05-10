@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+<title>Insert title here</title>
+<!--스타일 시트 -->
+<style type="text/css">
+  .box {
+    border: 1px solid #000;
+    margin:  10px;
+    padding: 10px;
+  }
+  
+  .hdd {
+    display: none;     /* 보이지도 않고 영역도 차지 하지 않음 */
+  }
+  .hdd2 {
+    visibility: hidden; /*영역차지 보이지는 않음 */
+  }
+  
+</style> 
+</head>
+<body>
+   <h2>visibility:요소를 숨기거나 보이도록 해주는 속성 입니다.</h2>
+   <hr/>
+   <div class="box">
+    <p><strong>이름 :</strong> 홍길동 </p>
+    <p><strong>연락처:</strong> 서울특별시 마포구 서강로 136 아이비타워 2층   02-313-7300 </p>
+   </div>
+   <div class="box">
+    <p><strong class="hdd">이름 :</strong> 홍길동 </p>
+    <p><strong class="hdd">연락처:</strong> 서울특별시 마포구 서강로 136 아이비타워 2층   02-313-7300 </p>
+   </div>
+   <div class="box">
+    <p><strong class="hdd2">이름 :</strong> 홍길동 </p>
+    <p><strong class="hdd2">연락처:</strong> 서울특별시 마포구 서강로 136 아이비타워 2층   02-313-7300 </p>
+   </div>      
+</body>
+</html>

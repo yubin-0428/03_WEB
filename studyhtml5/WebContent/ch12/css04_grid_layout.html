@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+<title>Insert title here</title>
+<!--스타일 시트 -->
+<style type="text/css">
+   .wrap {
+     display: grid;
+     grid-template-columns: 30% 70%;/*side content */
+     grid-template-rows: 50px 200px 50px; /* header <side content>  footer */
+   }
+   
+   .wrap > div {
+    margin: 1px;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid #efefef;
+   }
+   
+   .grid01 {
+     grid-column-start: 1;
+     grid-column-end: 3;
+     background: lightgreen;
+   }
+   
+   .grid02{
+     grid-column-start: 1;
+     grid-column-end: 2;
+     background: lightpink;
+   }
+
+   .grid03{
+     grid-column-start: 2;
+     grid-column-end: 3;
+     background: lightblue;
+   }
+         
+   .grid04{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background: bisque;
+   }
+</style>
+</head>
+<body>
+    <div class="wrap">
+      <div class="grid01">header</div>
+      <div class="grid02">side menu</div>
+      <div class="grid03">content</div>
+      <div class="grid04">footer</div>
+    </div>
+   
+</body>
+</html>

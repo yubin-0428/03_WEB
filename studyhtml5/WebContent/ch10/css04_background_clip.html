@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+<title>Insert title here</title>
+<!--스타일 시트 -->
+<style type="text/css">
+/* border-box              배경이 테두리를 포함한 영역에 배치(default)                                                        
+padding-box             배경이 테두리를 제외한 안쪽 영역에 배치                                                      
+content-box             배경이 안여백을 제외한 콘텐츠 영역에만 배치    */                                                     
+  div {
+    width: 550px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 15px double rgba(0,0,0,0.6);
+    background: #e5cadd;
+  }
+  
+  .clip01{ background-clip: border-box;}
+  .clip02{ background-clip: padding-box;}
+  .clip03{ background-clip: content-box;}
+</style>
+</head>
+<body>
+   <h2>background-clipe</h2>
+   <hr/>
+   
+   <div class="clip01">   배경이 테두리를 포함한 영역에 배치(default)</div>
+   <div class="clip02">   배경이 테두리를 제외한 안쪽 영역에 배치</div>
+   <div class="clip03">   배경이 안여백을 제외한 콘텐츠 영역에만 배치</div>
+   
+</body>
+</html>

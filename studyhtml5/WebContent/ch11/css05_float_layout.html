@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+<title>Layout</title>
+<!--스타일 시트 -->
+<style type="text/css">
+    * {
+     margin: 0;
+     padding: 0;
+    }
+    #wrapper{
+      width: 1000px;
+      height: 900px;
+    
+      margin: 0 auto;  /* 전체 box의 가운데 정렬*/
+      font-size: 40px;
+      color: #fff;     
+      text-align: center;
+      box-sizing: border-box;
+      border: 1px solid #000;
+    }   
+    /* border, padding, margin 은 width에 포함 되지 않는다. */
+    header {
+      width:1000px;
+      height: 100px;
+      line-height: 100px; /* line-height, height값을 동일하게 주면 수직 가운데 정렬*/
+      background: #2e7d32;
+      box-sizing: border-box;
+      border: 1px solid #000;           
+    }
+    
+    nav {
+      width: 1000px;
+      height: 100px;
+      line-height: 100px;
+      background: #388e3c;
+      box-sizing: border-box;
+      border: 1px solid #000;        
+    }
+       
+    section{
+        float: left;
+        width: 700px;
+        height: 600px;
+        line-height: 600px;
+        background: #43a047;  
+        box-sizing: border-box;
+        border: 1px solid #000;          
+    }   
+    
+    aside{
+       float: left;
+       width: 280px;  
+       height: 600px;
+       line-height: 600px;
+       background: #4caf50;
+       box-sizing: border-box;
+       border: 1px solid #000;  
+    }
+       
+    footer {
+       float: left;
+       width: 1000px;
+       height: 100px;
+       line-height: 100px;
+       background: #66bb6a;
+      box-sizing: border-box;
+      border: 1px solid #000;         
+    }   
+    
+    body {
+	   background-image: url("/studyhtml5/imgs/bg_grid.gif");
+    }
+       
+</style>
+</head>
+<body>
+   <div id="wrapper">
+      <header>header</header>
+      <nav>nav</nav>
+      <section>contents</section>
+      <aside>side</aside>
+	  <footer>footer</footer>	
+   </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

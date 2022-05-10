@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+<title>Table border</title>
+<!--스타일 시트 -->
+<style type="text/css">
+
+  table { /*테이블 공통 속성 */
+    width: 150px;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+    
+  }
+  
+  .tbl01 {
+    border: 1px solid yellow;
+    border-collapse:collapse; /* 두선을 무너 뜨리는 속성: 선이 1개만 유지 */
+  } 
+  
+  .tbl02 {
+    border: 1px dotted black;
+    border-collapse: collapse;
+  }
+
+  .tbl03{
+    border: 1px double red;
+    border-collapse: collapse; 
+  }
+</style> 
+</head>
+<body>
+   <h2>Table border00</h2>
+   <hr/>
+   
+   <table class="tbl03">
+     <tr>
+        <td class="tbl03">1</td>
+        <td class="tbl03">2</td>
+        <td class="tbl03">3</td>
+     </tr>
+   </table>
+      
+   <table class="tbl02">
+     <tr>
+        <td class="tbl02">1</td>
+        <td class="tbl02">2</td>
+        <td class="tbl02">3</td>
+     </tr>
+   </table> 
+      
+   <table class="tbl01">
+     <tr >
+        <td class="tbl01">1</td>
+        <td class="tbl01">2</td>
+        <td class="tbl01">3</td>
+     </tr>
+   </table>
+  
+   
+</body>
+</html>

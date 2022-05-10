@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+<title>Layout</title>
+<!--스타일 시트 -->
+<style type="text/css">
+    #wrapper{
+      width: 1000px;
+      height: 900px;
+    
+      margin: 0 auto;  /* 전체 box의 가운데 정렬*/
+      font-size: 40px;
+      color: #fff;     
+      text-align: center;
+    }   
+    
+    header {
+      width:1000px;
+      height: 100px;
+      line-height: 100px; /* line-height, height값을 동일하게 주면 수직 가운데 정렬*/
+      background: #2e7d32;
+         
+    }
+    
+    nav {
+      width: 1000px;
+      height: 100px;
+      line-height: 100px;
+      background: #388e3c;
+    }
+       
+    #contents{
+        float: left;
+        width: 700px;
+        height: 600px;
+        line-height: 600px;
+        background: #43a047;    
+    }   
+    
+    #side{
+       float: left;
+       width: 300px;
+       height: 600px;
+       line-height: 600px;
+       background: #4caf50;
+    
+    }
+       
+    footer {
+       float: left;
+       width: 1000px;
+       height: 100px;
+       line-height: 100px;
+       background: #66bb6a;
+    }   
+       
+</style>
+</head>
+<body>
+   <div id="wrapper">
+      <header>header</header>
+      <nav>nav</nav>
+		<div id="contents">contents</div>
+	    <div id="side">side</div>
+	  <footer>footer</footer>	
+   </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+
+
+<!-- navigator객체 : 브라우저 버전이나 브라우저명 등 브라우저 정보에 관한 객체
+        ------ 프로퍼터 ------- 
+1. appCodeNamd : 브라우저의 코드명을 반환 
+2. appName : 브라우저 명
+3. appVersion : 브라우저 버전
+4. platform : 플랫폼명
+5. userAgent : 브라우저의 코드명과 버전을 반환 
+
+        ----- 브라우저 -----
+1. IE 
+2. Edge
+3. Chrome 
+4. FireFox
+
+DOM : 문서 객체 모델이라 하며, document자체 
+      html 요소의 선택, 생성, 수정, 삭제를 위해 사용
+           
+    ---- 요소의 선택(메서드) ----
+    1. getElementByld() : html요소의 id속성으로 요소를 선택
+    2. getElementsByClassName() : html요소의 class속성으로 요소를 선택   
+    3. getElementsByTagName() : html요소의 태그명으로 요소를 선택
+    4. getElementsByName() : html요소의 속성중 name인 요소로 선택
+    5. querySelector() : 선택된 요소중 첫번째 요소만
+    6. querySelectorAll() : 선택한 전체 요소
+     -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+  let browser = window.navigator.userAgent;
+  console.log(`userAgent : ${browser}`);
+  
+  // 브라우저 정보 추출
+  function getBrowserInfo(){
+   let agent = window.navigator.userAgent.toUpperCase();
+   console.log('agent: '+agent);
+   
+   if(agent.lastindexOf('EDG') >= 0) {
+      return 'EDG';
+   }else if(agent.indexOf('TRIDENT')>= 0) {
+      return 'IE';
+   }else if(agent.indexOf('CHROME')>= 0) {
+      return 'CHROME';
+   }else if(agent.indexOf('FIREFOX')>= 0) {
+      return 'FIREFOX';
+    }else {
+      return '';
+    }
+  };
+  
+  window.onload = function() {
+	 document.querySelector 
+     let btn = document.getElementById('btn');
+     btn.onclick = function() {
+      // console.log('btn.onclick');  
+      
+      // agent: MOZILLA/5.0 (WINDOWS NT 10.0; WIN64; X64) APPLEWEBKIT/537.36 (KHTML, LIKE GECKO)
+      // CHROME/100.0.4896.127 SAFARI/537.36
+      alert(getBrowserInfo());
+     };
+  };
+</script>
+</head>
+<body>
+   <h2>navigator</h2>
+   <hr/>
+   <button id="btn">브라우저</button>
+</body>
+</html>

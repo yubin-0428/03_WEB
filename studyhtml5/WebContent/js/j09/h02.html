@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+    table, td, th{
+        border : 1px solid #000;
+        border-collapse : collapse;
+    }
+    
+    table{
+        width : 600px;
+        
+    }
+    
+    .t_left{
+        text_align : left;
+    }
+    
+    .t_center{
+        text-align : center;
+    }
+    
+    .t_right{
+        text-align : right;
+    }
+    
+    
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+   window.onload = function(){
+	    console.log(`window.onload`);	
+	    // table 가지고 오기
+	    
+	    let table = document.getElementById('tableList');
+	    
+	    let rows = table.querySelectorAll('tr');
+	    
+	    // 첫 번째는 header이므로 제거
+	    // tr event감지
+	    
+	    console.log(`rows.length:${rows.length}`);
+	    
+	    for(let i=1; i<rows.length; i++){
+	    	let row = rows[i];
+	    	
+	    	console.log(`row.tagName:${row.tagName}`);
+	    	row.onclick = function(event){
+	    	  console.log('row.onclick');
+	    	  // this.cells : td 배열
+	    	  let noText = this.cells[5].innerText;
+	    	  // console.log(`this.cells[0]:${this.cells[0]}`);
+	    	  console.log(`noText:${noText}`);
+	    };
+   };
+   
+   };
+</script>
+</head>
+<body>
+    <table id="tableList">
+        <thead>
+            <tr>
+                <th>NO.</th>
+                <th>제목</th>
+                <th>글쓴이</th>
+                <th>작성일</th>
+                <th>추천</th>
+                <th>조회수</th>
+            </tr>
+        </thead>
+        
+        <tbody id = "tableTbody">
+            <tr>
+                <td>1</td>
+                <td>j05_동영상</td>
+                <td class="t_center">이상무</td>
+                <td class="t_center">2022-05-09</td>
+                <td class="t_right">0</td>
+                <td class="t_right">1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>j06_동영상</td>
+                <td class="t_center">이상무2</td>
+                <td class="t_center">2022-05-09</td>
+                <td class="t_right">0</td>
+                <td class="t_right">1</td>
+            </tr>
+                        <tr>
+                <td>3</td>
+                <td>j07_동영상</td>
+                <td class="t_center">이상무3</td>
+                <td class="t_center">2022-05-09</td>
+                <td class="t_right">0</td>
+                <td class="t_right">1</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>j08_동영상</td>
+                <td class="t_center">이상무4</td>
+                <td class="t_center">2022-05-09</td>
+                <td class="t_right">0</td>
+                <td class="t_right">1</td>
+            </tr>
+        </tbody>
+    </table>   
+</body>
+</html>

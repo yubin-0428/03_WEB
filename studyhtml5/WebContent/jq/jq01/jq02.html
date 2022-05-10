@@ -1,0 +1,54 @@
+<!-- tern : jquery코드 완성 지원 plug-in -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="/studyhtml5/favicon.ico">
+<!-- reset 스타일 시트 -->
+<link rel="stylesheet" type="text/css" href="/studyhtml5/asset/css/reset.css">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+
+<!-- jquery -->
+<script type="text/javascript" src="/studyhtml5/asset/js/jquery-1.12.4.js"></script>
+
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+   $(document).ready(function(){
+       // console.log('PCWK *** document');
+       
+       $(".list1 > li[class='list_1']").css('border', '2px solid red');
+       $(".list1 > li[class='list_1']").css('border','2px solid orange');
+   
+       /* list2 list를 포함하고 있는 li */
+       $(".list2 > li[class *= 'list']").css('border','2px solid green');
+  
+       /* bg로 끝나는 li */
+       $(".list2 > li[class $='bg]".css('background', 'yellow'));
+   });
+</script>
+</head>
+<body>
+   <h2></h2>
+   <hr/>  
+   
+   <ul class="list1">
+    <li class="list_1">내용1_1</li>
+    <li class="list_2">내용1_2</li>
+    <li class="list_3">내용1_3</li>
+   </ul>
+   
+   <ul class="list2">
+    <li class="list_bg">내용2_1</li>
+    <li class="list_2">내용2_2</li>
+    <li class="list_3">내용2_3</li>
+   </ul>
+</body>
+</html>

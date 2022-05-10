@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="/studyhtml5/favicon.ico">
+<!-- reset 스타일 시트 -->
+<link rel="stylesheet" type="text/css" href="/studyhtml5/asset/css/reset.css">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+
+<!-- jquery -->
+<script type="text/javascript" src="/studyhtml5/asset/js/jquery-1.12.4.js"></script>
+
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+   $(document).ready(function(){
+       //console.log('PCWK *** document'); 
+       // id가 m1 텍스트 추출
+       console.log('id가 m1 텍스트 : '+$('m1').text());
+       
+       // 값 변경
+       $('m1').text('빨리 집에 가고 싶어요!');
+       
+       // m2 아래에 있는 div모두 선택
+       $('#m2 > div').text(function(index, t){
+    	    console.log(`index:${index}, t:${t}`);
+    	    
+    	    return `index:${index}, t:${t}`;
+       });
+       
+       
+   });
+</script>
+</head>
+<body>
+   <h2>text()</h2>
+   <hr/>  
+   <div id="m1">jQuery</div>
+   <div id="m2"></div>
+    <div>html</div>
+    <div>CSS</div>
+    <div>javascript</div>
+</body>
+</html>

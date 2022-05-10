@@ -1,0 +1,35 @@
+<!-- 기본 이벤트 모델 : javascript에서 html요소를 취득한 후 이벤트를
+                                   객체의 메서드 형식으로 연결 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="/studyhtml5/favicon.ico">
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+   window.onload = function(){
+	   
+	   console.log(`window.onload`);
+	   
+	   let btn = document.getElementById('btn');
+	   btn.onclick = function(){
+		   alert('btn.onclick');
+	   }
+   };
+</script>
+<title>Insert title here</title>
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+</head>
+<body>
+   <h2>기본 이벤트 모델</h2>
+   <hr/>
+   <!-- 취득 html 요소 -->
+   <button id = "btn">클릭</button>
+   
+</body>
+</html>

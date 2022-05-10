@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+    window.onload = function(){
+        let list01 = document.querySelector('#box > ul > li');
+        console.log(`list01:${list01}`);
+        
+        // background
+        list01.style.background = '#ff6600';
+        
+        let list02 = document.querySelectorAll('#box02 > ul > li');
+        console.log(`list02:${list02}`);
+        
+        // 배열로 선택
+        list02[0].style.background = '#ccc';
+        
+        list02.item(2).style.background = '#ddd';
+    };
+</script>
+</head>
+<body>
+   <h2>요소선택</h2>
+   <hr/>
+   <div id ="box">
+     <ul>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+     </ul>
+   </div>
+   
+   <div id="box02">
+     <ul>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+     </ul>
+   </div>
+</body>
+</html>

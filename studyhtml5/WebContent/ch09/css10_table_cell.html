@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+<title>Insert title here</title>
+<!--스타일 시트 -->
+<style type="text/css">
+  p {
+    padding: 10px;
+    background-color: antiquewhite;
+  }
+  
+  .valign1 { /* 테스트 한줄은 height,line-height를 동일하게 주면 세로 가운데 */
+    height: 50px;
+    line-height: 50px;
+  }
+  
+  .valign2 { 
+    height: 100px;
+    vertical-align: middle;
+  } 
+  
+  .valign3 { /*테스트 여러줄 세로 가운데 정열: display: table-cell; vertical-align: middle;*/
+    height: 100px;
+    display: table-cell;
+    vertical-align: middle;
+  }   
+</style>
+</head>
+<body>
+   <h2>table-cell: 문단에 여러줄 텍스트 세로 가운데 정열</h2>
+   <hr/>
+   <p class="valign1">오늘은 매우 즐거운 금요일</p>
+   <p class="valign2">오늘은 매우 즐거운 금요일, 내일은 더 즐거운 토요일, 내일은 더더 즐거운 일요일,한강에 자전거 타기!</p>
+   <p class="valign3">오늘은 매우 즐거운 금요일, 내일은 더 즐거운 토요일, 내일은 더더 즐거운 일요일,한강에 자전거 타기!</p>
+   
+</body>
+</html>

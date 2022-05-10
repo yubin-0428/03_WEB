@@ -1,0 +1,70 @@
+<!-- form객체의 프로퍼티 메서드 : input속성값
+1. value : input, textarea요소의 value값을 반환
+2. checked : checkbox, radio가 check되어 있으면 true
+3. disabled : 요소가 비활성화 되어있으면 true
+4. defaultValue : 초기 설정 값을 반환
+5. length : 요소의 개수를 반환
+6. focus() : 요소에 포커스를 맞춘다.
+7. blue() : 요소에 포커스를 없애줍니다.
+8. submit() : form의 요소 값들을 전송
+9. reset() : form의 요소 값들을 초기화 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+   window.onload = function () {
+      console.log(`window.onload`);
+      
+      //login form가지고 오기
+      let loginForm = document.login;
+      
+      //submit이벤트 감지
+      loginForm.onsubmit = function () {
+         //console.log(`loginForm.onsubmit`);
+         
+         // id값 가져오기
+         if(!loginForm.id.value){ // id에 값이 없으면
+             loginForm.id.focus();
+         alert('아이디를 입력하세요');
+         return false;
+         }
+         
+         // 비번값 가져오기
+         if(!loginForm.pw.value){
+             loginForm.pw.focus();
+             alert('비번을 입력하세요');
+             return false;
+         }
+         
+      };
+   };
+</script>
+</head>
+<body>
+   <h2>로그인</h2>
+   <form action="#" name="login" method="post"></form>
+   <div>
+      <label for="id">아이디</label>
+      <input type="text" name="id" id="id">
+   </div>
+   <div>
+      <label for="id">비 번</label>
+      <input type="password" name="pw" id="pw">
+   </div>
+    <div>
+        <input type="submit" value="로그인">
+        <input type="reset" value="취소">
+    </div>
+
+</body>
+</html>

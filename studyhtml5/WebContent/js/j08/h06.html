@@ -1,0 +1,39 @@
+<!-- clearInterval() : setInterval()을 중지시키는 메서드이며,
+    clearInterval()을 사용하려면 setInterval()을 변수로 받아야 한다. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+   window.onload = function(){
+	   // console.log('window.onload');
+	   let bt = document.getElementById('bt');
+	   
+	   let i = 0;
+	   let increase = setInterval(function(){
+		   i++;
+		   alert('2초마다 수행 : '+i);
+	   },2000);
+	   
+	   bt.onclick = function(){
+		   window.clearInterval(increase);
+	   };
+   };
+</script>
+</head>
+<body>
+   <h2>clearInterval()</h2>
+   <hr/>
+   <button id="bt">stop</button>
+   
+</body>
+</html>

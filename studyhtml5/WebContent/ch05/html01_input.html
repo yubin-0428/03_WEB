@@ -1,0 +1,51 @@
+<!-- Html comment -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="keywords" content="html, css, javascript, jsp" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!-- 스타일 시트 -->
+<style type="text/css">
+ 
+</style>
+
+<title>Insert title here</title>
+<!-- 자바스크립트 코드 -->
+<script type="text/javascript">
+   
+</script>
+</head>
+<body>
+   <h2></h2>
+   <p>날짜:2022. 4. 19</p>
+   <hr/>
+   <form action="#">
+   <label for="id">아이디</label>
+   <!-- autocomplete=on : 자동완성 -->
+   <!-- autofocus : 처음에 로딩됐을 때 아이디에 깜빡이가 표시된다. -->
+   <!-- title : 도움말, 마우스를 위에 올리면 뜬다. -->
+   <!-- placeholder : hint, 처음에 로딩됐을 때 나오는 수 -->
+   <!-- maxlength : 최대입력 수 -->
+   <!-- size : 입력할 수 있는 칸의 크기 , 입력필드 크기 -->
+   <!-- required : DB컬럼의 not null(입력이 되지 않으면 전송이 안된다. 꼭 입력하기) -->
+   <input type="text" id="id name="id autocomplete="on" 
+    autofocus="autofocus" 
+    title="euloja5@naver.com"
+    placeholder="pcwk@naver.com" 
+    maxlength="20" 
+    size="40"
+    required="required" >
+   
+   <label for="passwd">비밀번호</label>
+   <!-- pattern : [숫자, 영어, 특수문자는 이걸쓸수 있다] {개수 몇개부터, 몇개사이 가능} -->
+   <!-- required 뒤에꺼 생략가능 -->
+   <input type="password" 
+    pattern="[0-9A-Za-z#@$%^*]{6,12}"
+    required
+    id="passwd" name="passwd">
+   <input type="submit" value="전송">
+   </form>
+   
+</body>
+</html>

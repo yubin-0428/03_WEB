@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="keywords" content="html, css, javascript, jsp" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+   <div id="wrap">
+       <h2>게시-등록</h2>
+       <hr/>
+       <!-- 버튼 -->
+       <div>
+         <input type="button" value="등록" id="doSave">
+         <!-- <button>등록</button> -->
+         <input type="button" value="목록" id="moveToList">
+       </div>
+       <!--// 버튼 -------------------------------------------------------------->
+       
+       <!-- 입력 -->
+       <form action="">
+        <table border="1"  >
+            <tr>
+                <td width="100"><label for="title">제목</label></td>
+                <td width="200"><input maxlength="200" type="text" size="30" name="title" id="title"> </td>
+            </tr>
+            <tr>
+                <td ><label for="regId">등록자</label></td>
+                <td ><input maxlength="20" type="text" size="30" name="regId" id="regId"> </td>
+            </tr>  
+            <tr>
+                <td colspan="2"><label for="contents">내용</label></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea  rows="10" cols="50" name="contents" id="contents"></textarea>
+                </td>
+            </tr>          
+        </table>
+       </form>
+       <!--// 입력 -------------------------------------------------------------->
+       
+   </div>
+</body>
+</html>

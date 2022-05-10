@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--자바스크립트 코드 -->
+<script type="text/javascript"></script>
+<title>Insert title here</title>
+<!--스타일 시트 -->
+<style type="text/css">
+/*
+hidden              넘치는 콘텐츠를 숨김                                                     
+auto                콘텐츠가 넘칠 경우 스크롤바를 생성함                                                        
+scroll              콘텐츠가 넘치지 않아도 스크롤바를 생성, scroll-x, scroll-y: 한방향으로 스크롤바 생성                                                        
+visible             넘치는 콘텐츠가 그대로 노출                                                     
+*/
+
+#div1, #div2, #div3, #div4 {
+  border: 1px solid black;
+  width:  250px;
+  margin-bottom: 12px;
+}
+
+#div1 { overflow-x: hidden;}
+#div2 { overflow-x: scroll;}
+#div3 { overflow-x: visible;}
+#div4 { overflow-x: auto;}
+</style>
+</head>
+<body>
+<ul>
+  <li><code>overflow-x:hidden</code> — hides the text outside the box
+    <div id="div1">
+      ABCDEFGHIJKLMOPQRSTUVWXYZABCDEFGHIJKLMOPQRSTUVWXYZ
+    </div>
+  </li>
+
+  <li><code>overflow-x:scroll</code> — always adds a scrollbar
+    <div id="div2">
+      ABCDEFGHIJKLMOPQRSTUVWXYZABCDEFGHIJKLMOPQRSTUVWXYZ
+    </div>
+  </li>
+
+  <li><code>overflow-x:visible</code> — displays the text outside the box if needed
+    <div id="div3">
+      ABCDEFGHIJKLMOPQRSTUVWXYZABCDEFGHIJKLMOPQRSTUVWXYZ
+    </div>
+  </li>
+
+  <li><code>overflow-x:auto</code> — on most browsers, equivalent to <code>scroll</code>
+    <div id="div4">
+      ABCDEFGHIJKLMOPQRSTUVWXYZABCDEFGHIJKLMOPQRSTUVWXYZ
+    </div>
+  </li>
+</ul>   
+   
+</body>
+</html>

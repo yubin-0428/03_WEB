@@ -1,0 +1,37 @@
+<!-- 스타일 : 자바스크립트 스타일 형식
+    요소.style.속성 = '속성값';
+1. background-color : backgroundColor
+2. border-botton-width : borderBottomWidth
+ -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+   window.onload = function(){
+	   let content = document.getElementById('content');
+	   content.style.border = '4px solid #718c00';
+	   content.style.width = '200px';  
+	   content.style.textAlign = 'center';
+	   content.style.lineHeight='200px';
+	   // width
+	   // height
+	   // border
+   };
+</script>
+</head>
+<body>
+   <h2>자바스크립트 스타일 형식</h2>
+   <hr/>
+   <div id='content'>내용</div>
+</body>
+</html>
