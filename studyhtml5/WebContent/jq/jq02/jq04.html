@@ -1,0 +1,73 @@
+<!-- ★ toggleClass()메서드 : 요소에 class속성이 없으면 addClass()가 적용,
+    class속성이 있으면 removeClass()가 적용된다.
+    ex) 추가, 제거 : $('div').toggleClass('클래스명')
+    
+      ★ hasClass()메서드 : if문의 조건식에 사용, 선택한 요소에 클래스가 있으면 true, 그렇지 않으면 false.
+    ex) if($('#box').hasClass('m')){
+                클래스 있음
+        }else{
+                  클래스 없음 
+       ★ 속성관련 메서드 -> attr()메서드 : 선택한 요소의 attribute(속성)을 선택, 생성, 변경할 수 있다.
+       취득 :    $('a').attr('href')
+       생성, 변경 : $('a').attr('href', 'http://daum.net').attr('target', "_blank");
+       콜백 함수 : $('a').attr('href', function(index, h){
+                // h: href의 속성
+                return attribute(속성);
+                }
+                           
+                  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel = "short icon" type="image/x-icon" href="/studyhtml5/favicon.ico">
+<meta http-equiv="Expires" content="Mon, 01 Jan 2020 00:00:01 GMT">
+<!--위의 명시된 날짜 이후가 되면 페이지가 캐싱되지 않는다.(2020년 이후 쭉 ) -->
+<meta http-equiv="Expires" content="-1">
+<!--캐시된 페이지가 만료되어 삭제되는 시간을 정의하나 특별한 경우가 아니면 -1로 설정-->
+<meta http-equiv="Pragma" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.0)-->
+<meta http-equiv="Cache-Control" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.1)-->
+
+<!--reset 스타일 시트 -->
+<!-- <link rel="stylesheet" type="text/css" href="/studyhtml5/asset/css/reset.css"> -->
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+<title>Insert title here</title>
+<!-- jQuery -->
+<script type="text/javascript" src="/studyhtml5/asset/js/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <h2></h2>
+  <hr/>
+  
+  <div id="site">
+    <!-- target의 _blank는 새창, 새탭 -->
+    <a href="https://cafe.daum.net/pcwk" target="_blank">다음 cafe</a>
+    <a href="https://naver.com" target="_blank">네이버</a>
+    <a href="https://nate.com" target="_blank">네이트</a>
+  </div>
+  <!-- 자바스크립트 코드 -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		//console.log('PCWK *** document');
+		console.log($("#site > a:eq(0)").attr('href'));
+
+		// https://m.naver.com/ 변경
+		$("#site > a:eq(1)").attr('href', 'https://m.naver.com/');
+		
+		// callback
+		
+		$("#site > a").attr("title", function(i, value){
+			console.log(`i:${i}, value:${value}`);
+			return '비둘기';
+		});
+		
+	});
+ </script>
+</body>

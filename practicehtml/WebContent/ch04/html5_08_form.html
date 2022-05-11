@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+</head>
+<body>
+   <h2>form 속성</h2>
+   <p>날짜:2022-04-29</p>
+   <hr/>
+   <!-- aForm: 폼이름, action: 입력한 값을 처리할 페이지. 
+                즉, 전송누르면 a.jsp로간다. -->
+   <form name="aForm" action="a.jsp">
+     <label for="name">이름</label>
+     <input type="text" name="name"> <br/>
+
+     <label for="cellphone">핸드폰</label>    
+     <input type="text" name="cellphone">
+     
+     <input type="submit" value="전송"> 
+   </form>
+</body>
+</html>

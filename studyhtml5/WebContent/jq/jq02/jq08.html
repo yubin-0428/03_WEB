@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon"
+  href="/studyhtml5/favicon.ico">
+<meta http-equiv="Expires" content="Mon, 01 Jan 2020 00:00:01 GMT">
+<!--위의 명시된 날짜 이후가 되면 페이지가 캐싱되지 않는다.(2020년 이후 쭉 ) -->
+<meta http-equiv="Expires" content="-1">
+
+<!--캐시된 페이지가 만료되어 삭제되는 시간을 정의하나 특별한 경우가 아니면 -1로 설정-->
+
+<meta http-equiv="Pragma" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.0)-->
+
+<meta http-equiv="Cache-Control" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.1)-->
+
+<!-- reset 스타일 시트 -->
+<!-- <link rel="stylesheet" type="text/css" href="/studyhtml5/asset/css/reset.css">-->
+<!-- 스타일 시트 -->
+<style type="text/css">
+* {
+  margin: 5px;
+}
+
+input[type=text].on {
+  background: #ff7700;
+  color: #fff;
+}
+
+p {
+  color: #ff0000;
+  display: none;
+}
+</style>
+<title>Insert title here</title>
+<!-- jquery -->
+<script type="text/javascript"
+  src="/studyhtml5/asset/js/jquery-1.12.4.js"></script>
+
+</head>
+<body>
+  <div id="m1">
+    <input type="text" id="m1Input" name="m1Input" placeholder="값을 입력하세요.">
+  </div>
+
+  <div id="m2">
+    <input type="text" placeholder="값을 입력하세요.">
+  </div>
+
+  <div id="m3">
+    <span>값을 수정한 후 다음 입력 요소로 이동하세요</span> 
+    <input type="text" placeholder="값을 입력하세요." value="10">
+  </div>
+
+  <div id="m4">
+    <input type="text" placeholder="텍스트를 드래그 하세요.">
+  </div>
+
+  <form action="#" class="frm">
+    <fieldset>
+      <legend>로그인</legend>
+      <div>
+        <label for="id">아이디</label><input type="text" id="id" name="id" />
+      </div>
+      <p class="msg1">아이디를 입력하세요!</p>
+      <div>
+        <label for="pw">비밀번호</label><input type="password" id="pw" name="pw" />
+      </div>
+      <p class="msg2">비밀번호를 입력하세요!</p>
+      <button id="send">전송</button>
+    </fieldset>
+  </form>
+
+  <!--자바스크립트 코드 -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+      //console.log('PCWK *** document'); 
+      //Event감지 및 처리
+      //        $('#m1Input').focus(function () {
+      $('#m1 input').focus(function() {
+//        console.log('#m1 input');
+          $(this).addClass("on");//class추가
+      }).blur(function () {
+          $(this).removeClass("on");//class삭제
+          });
+      
+      $('#m2').focusin(function () {
+          $(this).children().addClass("on");//class추가
+      }).focusout(function () {
+        $(this).children().removeClass("on");//class삭제
+      });
+      
+      //change(): 선택된 요소의 값이 변경 되었을 때 이벤트가 발생
+      $('#m3 input').change(function () {
+//        console.log('#m3 input change()');
+        //OK (true) or Cancel (false)
+        let msg = confirm('값을 변경 하시겠습니까?')
+//         console.log('msg:'+msg);
+        if(!msg){
+          $(this).val(10);
+        }
+      });
+      
+      $('#m4 input').select(function () {
+        let v = $(this).val();
+        let size = v.length;
+        
+        console.log(`v:${v}`);
+        alert(v+"총 "+size+'문자를 선택하셨습니다.');
+      });
+          
+      $('.frm').submit(function () {
+        console.log('submit');
+         if(!$('#id').val()){
+//               alert('아이디를 입력 하세요.')
+            $('.msg1').css('display', 'block')
+            $('#id').focus();
+              return false;
+          }else{
+        	$('.msg1').css('display', 'block')
+          }
+         
+         // 비번
+         if(!$('#pw').val()){
+        	 $('.msg2').css('display', 'block');
+        	 $('#pw').focus();
+        	 
+        	 return false;
+         }else{
+             $('.msg2').css('display', 'block')
+         }
+      });
+    });
+  </script>
+</body>
+</html>

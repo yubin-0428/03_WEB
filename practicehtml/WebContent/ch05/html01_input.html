@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+</head>
+<body>
+   <p>날짜:2022-04-29</p>
+   <hr/>
+   <form>
+   
+   <!-- autocomplete=on : 자동완성 -->
+   <!-- autofocus : 처음에 로딩됐을 때 아이디에 깜빡이가 표시된다. -->
+   <!-- title : 도움말, 마우스를 위에 올리면 뜬다. -->
+   <!-- placeholder : hint, 처음에 로딩됐을 때 나오는 수 -->
+   <!-- maxlength : 최대입력 수 -->
+   <!-- size : 입력할 수 있는 칸의 크기 , 입력필드 크기 -->
+   <!-- required : DB컬럼의 not null(입력이 되지 않으면 전송이 안된다. 꼭 입력하기) -->
+   <label for="id">아이디</label>
+   <input type="text" id="id" name="id"
+    placeholder="pcwk@naver.com"
+    title="euloja5@naver.com" autofocus required>
+    
+   <!-- pattern : [숫자, 영어, 특수문자는 이걸쓸수 있다] 
+     {개수 몇개부터, 몇개사이 가능}, 밑에는 앞의거가 다 들어가는 6~12자 자리 비번-->
+   <label for="password">비밀번호</label> 
+   <input type="password" id="password" name="password"
+    pattern="[0-9A-Za-z#@$%^*]{6,12}">
+   <input type="submit" value="전송">
+   
+   </form>
+</body>
+</html>
