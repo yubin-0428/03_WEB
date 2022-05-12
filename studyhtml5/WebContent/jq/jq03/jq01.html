@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel = "short icon" type="image/x-icon" href="/studyhtml5/favicon.ico">
+<meta http-equiv="Expires" content="Mon, 01 Jan 2020 00:00:01 GMT">
+<!--위의 명시된 날짜 이후가 되면 페이지가 캐싱되지 않는다.(2020년 이후 쭉 ) -->
+<meta http-equiv="Expires" content="-1">
+<!--캐시된 페이지가 만료되어 삭제되는 시간을 정의하나 특별한 경우가 아니면 -1로 설정-->
+<meta http-equiv="Pragma" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.0)-->
+<meta http-equiv="Cache-Control" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.1)-->
+
+<!--reset 스타일 시트 -->
+<!-- <link rel="stylesheet" type="text/css" href="/studyhtml5/asset/css/reset.css"> -->
+<!--스타일 시트 -->
+<style type="text/css">
+    .on{
+        background : #ff7700;
+        color : #fff;
+    }
+</style>
+<title>Insert title here</title>
+<!-- jQuery -->
+<script type="text/javascript" src="/studyhtml5/asset/js/jquery-1.12.4.js"></script>
+</head>
+<body>
+    <div id="m1">
+  <button>클릭</button>
+  </div>
+  
+  <div id="m2">
+  <button>클릭2_1</button>
+  <button>클릭2_2</button>
+  </div>
+  
+  <div id="m3">
+  <button>클릭3</button>
+  </div>
+  
+  <div id="m4">
+  <button>클릭4</button>
+  </div>
+  
+  <div id="m5">
+  <button>클릭5</button>
+  </div>
+  
+  <div id="m6">
+  <button>클릭6</button>
+  </div>
+  
+  <div id="m9">
+  <p>클릭7</p>
+  </div>
+  
+  <!-- 자바스크립트 코드 -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		console.log('PCWK *** document');
+		
+	$('#m1 button').on('click', function(){
+		//console.log('#m1 button');
+		alert('m1 button');
+	    });
+	
+	$('m2').on('click', 'button',function(){
+		alert('#m2 button');
+	});
+	
+	// event 여러 개 :mouseenter, mouseleave
+	$('m3 button').on({
+		mouseenter : function(){
+			//console.log(`mouseenter`);
+			//$(this).toggleClass('on');
+			$(this).addClass("on");
+		}, mouseleave : function(){
+            //console.log(`mouseleave`);
+            //$(this).toggleClass('on');
+            $(this).removeClass("on");
+        }
+	
+	});
+	
+	// javascript function연결
+	// 함
+	function showEvent(){
+		alert('오늘은 즐거운 목요일!')
+	}
+	
+	$('#m4 button').on('click', showEvent); // 함수 호출에'()' 넣으면 안된다.
+	
+	// event 제거 off
+	$('#m5 button').on('click', function(){
+		alert('event제거');
+	}).off();
+	
+	// 일회성 event
+	$('m6 button').one('click', function(){
+		alert('일회성 event');
+	});
+	
+	// 
+	$('m7').on('click', function(){
+		//m7 p연결
+	$('p', this).css('background', '#ff0000');
+	});
+	
+	});
+	
+ </script>
+</body>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel = "short icon" type="image/x-icon" href="/studyhtml5/favicon.ico">
+<meta http-equiv="Expires" content="Mon, 01 Jan 2020 00:00:01 GMT">
+<!--위의 명시된 날짜 이후가 되면 페이지가 캐싱되지 않는다.(2020년 이후 쭉 ) -->
+<meta http-equiv="Expires" content="-1">
+<!--캐시된 페이지가 만료되어 삭제되는 시간을 정의하나 특별한 경우가 아니면 -1로 설정-->
+<meta http-equiv="Pragma" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.0)-->
+<meta http-equiv="Cache-Control" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.1)-->
+
+<!--reset 스타일 시트 -->
+<!-- <link rel="stylesheet" type="text/css" href="/studyhtml5/asset/css/reset.css"> -->
+<link rel="stylesheet" type="text/css" href="/studyhtml5/asset/css/jquery-ui.css">
+
+<!--스타일 시트 -->
+<style type="text/css">
+
+</style>
+<title>Insert title here</title>
+<!-- jQuery -->
+<script type="text/javascript" src="/studyhtml5/asset/js/jquery-1.12.4.js"></script>
+<!-- jQuery UI -->
+<script type="text/javascript" src="/studyhtml5/asset/js/jquery-ui.js"></script>
+
+</head>
+<body>
+  <h2>DATEPICKER한글화 FORMAT</h2>
+  <hr/>
+  
+  <div>기간설정
+    <input type="text" class="datepicker">~<input type="text" class="datepicker">
+  </div>
+  
+  
+  <!-- 자바스크립트 코드 -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.datepicker').datepicker({
+			dateFormat : 'yy-mm-dd', 
+			changeYear : true,
+			changeMonth: true,
+			butto3nImage: "/studyhtml5/Imgs/calendar_icon.png",
+			showOn: "button",
+			buttonText : "달력"
+		});
+		
+		/* 한글 format으로 달력 설정 */
+		$.datepicker.setDefaults({
+		   	monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+			monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+			dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'],
+			dayNamesMin:['일','월','화','수','목','금','토'],
+		    showMonthAfterYear: true		   	
+		});
+		
+	});
+</script>
+</body>
+</html>

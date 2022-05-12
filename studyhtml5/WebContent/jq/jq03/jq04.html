@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel = "short icon" type="image/x-icon" href="/studyhtml5/favicon.ico">
+<meta http-equiv="Expires" content="Mon, 01 Jan 2020 00:00:01 GMT">
+<!--위의 명시된 날짜 이후가 되면 페이지가 캐싱되지 않는다.(2020년 이후 쭉 ) -->
+<meta http-equiv="Expires" content="-1">
+<!--캐시된 페이지가 만료되어 삭제되는 시간을 정의하나 특별한 경우가 아니면 -1로 설정-->
+<meta http-equiv="Pragma" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.0)-->
+<meta http-equiv="Cache-Control" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.1)-->
+
+<!--reset 스타일 시트 -->
+<!-- <link rel="stylesheet" type="text/css" href="/studyhtml5/asset/css/reset.css"> -->
+<!--스타일 시트 -->
+<style type="text/css">
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  html {
+    height: 100%;
+  }
+  
+  body {
+    font-family: "돋움";
+    font-size: 12px;
+    color: #333;
+    height: 100%;
+  }
+  
+  a {
+    font-family: "돋움";
+    font-size: 12px;
+    color: #333;
+    text-decoration: none;
+    line-height: 20px;
+  }
+  
+  #select {
+    width: 200px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 100;
+  }
+  
+  #select a {
+    display: block;
+    height: 20px;
+  }
+  
+  #select #title {
+    border: 1px solid #ccc;
+  }
+  
+  #select #title a {
+    background: url("/studyhtml5/Imgs/icon.gif") no-repeat 100% 0;
+  }
+  
+  #select #title a.on {
+    background-position: 100% -20px;
+  }
+  
+  #select #list {
+    border: 1px solid #ccc;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: -94px;
+    width: 200px;
+    box-sizing: border-box;
+/*
+    box-sizing은 박스의 크기를 어떤 것을 기준으로 계산할지를 정하는 속성입니다.    
+    content-box : 콘텐트 영역을 기준으로 크기를 정합니다.
+    border-box : 테두리를 기준으로 크기를 정합니다.
+    initial : 기본값으로 설정합니다.
+    inherit : 부모 요소의 속성값을 상속받습니다.
+*/
+    display: block;
+  }
+  
+  #select #list.on {
+    display: block;
+  }
+  
+  #select #list a {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #select #list a:hover,
+  #select #list a:active,
+  #select #list a:focus {
+    background: #ff6600;
+    color: #fff;
+  }
+  
+  #con {
+    background: #ddd;
+    height: 100%;
+  }
+
+</style>
+<title>Insert title here</title>
+<!-- jQuery -->
+<script type="text/javascript" src="/studyhtml5/asset/js/jquery-1.12.4.js"></script>
+</head>
+<body>
+    <div id="select">
+        <div id="title"><a href="#">사이트 이동</a></div>
+        <ul id="list">
+            <li><a href="http://www.naver.com/" target="_blank" title="새탭">네이버</a></li>
+            <li><a href="http://www.daum.net/" target="_blank" title="새탭">다음</a></li>
+            <li><a href="https://cafe.daum.net/pcwk" target="_blank" title="새탭">다음cafe</a></li>
+        </ul>
+    </div>
+    <div id="con"></div>
+  <!-- 자바스크립트 코드 -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#title a').on('click', function(event){
+            //console.log(`title a`);
+            if($(this).hasClass('on')==true){
+                $(this).add("#list").removeClass("on");
+            }else{
+                $(this).add("#list").addClass("on");
+            }
+            
+            // 버블링
+            /* 이벤트 버블링은 부모요소와 자식요소 모두에 이벤트가 연결되어 있을 경우
+             자식요소의 이벤트를 실행 했을 때 부모 요소의 이벤트도 같이 실행 */
+            event.stopPropagation();
+            // return false;
+        });
+        
+        $('html').on('click', function(){
+            alert('html click');
+        });
+    });
+ </script>
+</body>
+</html>

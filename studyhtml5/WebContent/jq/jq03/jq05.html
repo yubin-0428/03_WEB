@@ -1,0 +1,119 @@
+<!-- jQuery효과 : 애니메이션 메서드 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel="short icon" type="image/x-icon"
+	href="/studyhtml5/favicon.ico">
+<meta http-equiv="Expires" content="Mon, 01 Jan 2020 00:00:01 GMT">
+<!--위의 명시된 날짜 이후가 되면 페이지가 캐싱되지 않는다.(2020년 이후 쭉 ) -->
+<meta http-equiv="Expires" content="-1">
+<!--캐시된 페이지가 만료되어 삭제되는 시간을 정의하나 특별한 경우가 아니면 -1로 설정-->
+<meta http-equiv="Pragma" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.0)-->
+<meta http-equiv="Cache-Control" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.1)-->
+
+<!--reset 스타일 시트 -->
+<!-- <link rel="stylesheet" type="text/css" href="/studyhtml5/asset/css/reset.css"> -->
+<!--스타일 시트 -->
+<style type="text/css">
+* {
+	margin: 5px;
+}
+
+.box {
+	width: 200px;
+	height: 200px;
+	border: 2px solid #333;
+	display: none;
+}
+</style>
+<title>Insert title here</title>
+<!-- jQuery -->
+<script type="text/javascript"
+	src="/studyhtml5/asset/js/jquery-1.12.4.js"></script>
+</head>
+<body>
+	<div id="m1">
+		<button>show</button>
+		<button>hide</button>
+		<button>toggle</button>
+		<div class="box">내용1</div>
+	</div>
+
+	<div id="m2">
+		<button>slideDowm</button>
+		<button>slideUp</button>
+		<button>slideToggle</button>
+		<div class="box">내용2</div>
+	</div>
+
+	<div id="m3">
+		<button>fadeIn</button>
+		<button>fadeOut</button>
+		<button>fadeToggle</button>
+		<div class="box">내용3</div>
+	</div>
+
+
+	<!-- 자바스크립트 코드 -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//console.log('PCWK *** document');
+            
+			$('#m3 button:eq(0)').on('click', function(){
+                $("#m3 .box").fadeIn("800", "swing",function(){
+                	$(this).text('오늘은 즐거운 목요일!<br/> 곧 점심시간!');
+                });
+            });
+			
+			$('#m3 button:eq(1)').on('click', function(){
+                $("#m3 .box").fadeOut("fast", "swing",function(){
+                    $(this).text('오늘은 즐거운 목요일!<br/> 곧 점심시간!');
+                });
+            });
+			
+			$('#m3 button:eq(2)').on('click', function(){
+                $("#m3 .box").fadeToggle("fast", "swing",function(){
+                    if($(this).css("display") == "none"){
+                    	$(this).html("<p>오늘은 즐거운 목요일! 곧 점심시간2</p>");
+                    }else{
+                    	$(this).html("<p>내일은 더 즐거운 금요일</p>");
+                }
+                });
+            });
+			
+			
+			$('#m2 button:eq(0)').on('click', function(){
+				$("#m2 .box").slideDown('fast','swing');
+			});
+			
+			$('#m2 button:eq(1)').on('click', function(){
+                $("#m2 .box").slideUp('slow','swing');
+            });
+			
+			$('#m2 button:eq(2)').on('click', function(){
+                $("#m2 .box").slideToggle(700,"linear");
+            });
+			
+			
+			
+			$('#m1 button:eq(0)').on('click', function() {
+				//console.log(`#m1 button:eq(0)`);
+				$("#m1 .box").show();
+			});
+
+			$('#m1 button:eq(1)').on('click', function() {
+				$("#m1 .box").hide();
+			});
+
+			$('#m1 button:eq(2)').on('click', function() {
+				$("#m1 .box").toggle('fast', "swing");
+			});
+
+		});
+	</script>
+</body>

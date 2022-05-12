@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel = "short icon" type="image/x-icon" href="/studyhtml5/favicon.ico">
+<meta http-equiv="Expires" content="Mon, 01 Jan 2020 00:00:01 GMT">
+<!--위의 명시된 날짜 이후가 되면 페이지가 캐싱되지 않는다.(2020년 이후 쭉 ) -->
+<meta http-equiv="Expires" content="-1">
+<!--캐시된 페이지가 만료되어 삭제되는 시간을 정의하나 특별한 경우가 아니면 -1로 설정-->
+<meta http-equiv="Pragma" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.0)-->
+<meta http-equiv="Cache-Control" content="no-cache">
+<!--페이지 로드시마다 페이지를 캐싱하지 않는다.(HTTP 1.1)-->
+
+<!--reset 스타일 시트 -->
+<!-- <link rel="stylesheet" type="text/css" href="/studyhtml5/asset/css/reset.css"> -->
+<!--스타일 시트 -->
+<style type="text/css">
+    *{
+    margin : 0;
+    padding : 0;
+    }
+    
+    .subject{
+    width : 300px;
+    height : 300px;
+    border-radius : 150px;
+    text-align : center;
+    line-height : 300px;
+    
+    position : absolute;
+    left : 50%;
+    top : 50%;
+    
+    margin-left : -150px;
+    margin-top : -150px;
+    
+    border : 4px solid #f0fe00;
+    background : #718c00;
+    
+    color : azure;
+    }
+    
+    .tip{
+         width : 250px;
+         height : 30px;
+         background : #333;
+         color : #fff;
+         border-radius : 20px;
+         
+         text-align : center;
+         line-height : 30px;
+         
+         position : absolute;
+         transition : opacity 0.3s ease;
+         opacity : 0;  /* 불투명 처리 : 0 ~ 1 */
+    }
+    
+    .tip.on{
+        opacity : 0.8;
+    }
+    
+    
+</style>
+<title>Insert title here</title>
+<!-- jQuery -->
+<script type="text/javascript" src="/studyhtml5/asset/js/jquery-1.12.4.js"></script>
+</head>
+<body>
+    <div class="subject">학습할 과목</div>
+    <div class="tip">java,oracle,html,css,javascript,jquery,bootstrap,svn</div>
+  <!-- 자바스크립트 코드 -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		//console.log('PCWK *** document');
+		
+		$('.subject').mousemove(function(event){
+			console.log(`mousemove:x=${event.pageX}, y=${event.pageY}`);
+		    let x = event.pageX;
+		    let y = event.pageY;
+			
+		    $('.tip').css({left:x, top:y}).addClass('on');
+		
+		}).mouseleave(function(){
+			$('.tip').removeClass('on');
+		});
+		
+	});
+ </script>
+</body>
