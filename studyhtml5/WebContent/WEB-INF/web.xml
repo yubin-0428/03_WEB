@@ -9,4 +9,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- 서블릿 등록, 서블릿 매핑 -->
+  <servlet>
+    <servlet-name>hello</servlet-name> <!-- 실제 서블릿 클래스 이름 -->
+    <servlet-class>com.pcwk.cclass.servlet.HelloServlet</servlet-class> <!-- 실제 서블릿 클래스 -->
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>hello</servlet-name>
+    <url-pattern>/hello.do</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
