@@ -1,0 +1,681 @@
+2022-05-16 12:20:43,124 DEBUG [main] board.PConnection (PConnection.java:30)     - ClassNotFoundException: oracle.jdbc.driver.OracleDriver
+2022-05-16 12:20:43,129 DEBUG [main] board.BoardDao    (BoardDao.java:388)     - query: 
+ DELETE FROM board 
+ WHERE seq = ?	  
+
+2022-05-16 12:20:43,129 DEBUG [main] board.BoardDao    (BoardDao.java:389)     - param: BoardVO [seq=900001, title=제목_900001, contents=내용_900001, readCnt=0, regDt=, regId=pcwk, modDt=, modId=pcwk, toString()=DTO [no=0]]
+2022-05-16 12:22:45,104 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@735f7ae5
+2022-05-16 12:22:45,112 DEBUG [main] board.BoardDao    (BoardDao.java:388)     - query: 
+ DELETE FROM board 
+ WHERE seq = ?	  
+
+2022-05-16 12:22:45,113 DEBUG [main] board.BoardDao    (BoardDao.java:389)     - param: BoardVO [seq=900001, title=제목_900001, contents=내용_900001, readCnt=0, regDt=, regId=pcwk, modDt=, modId=pcwk, toString()=DTO [no=0]]
+2022-05-16 12:22:45,274 DEBUG [main] board.BoardDao    (BoardDao.java:403)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:22:45,281 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:22:45,282 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:22:45,284 DEBUG [main] board.BoardMain   (BoardMain.java:39)     - ------------------------
+2022-05-16 12:22:45,284 DEBUG [main] board.BoardMain   (BoardMain.java:40)     - --삭제 실패--
+2022-05-16 12:22:45,284 DEBUG [main] board.BoardMain   (BoardMain.java:41)     - ------------------------
+2022-05-16 12:22:45,354 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@4a22f9e2
+2022-05-16 12:22:45,355 DEBUG [main] board.BoardDao    (BoardDao.java:235)     - query: 
+ SELECT                                        
+     A.seq,                                    
+     A.rnum AS NUM,                            
+     A.title,                                  
+     A.read_cnt,                 	          
+     TO_CHAR(A.mod_dt,'YYYY/MM/DD') AS mod_dt, 
+     A.mod_id                                  
+ FROM(                                         
+     SELECT ROWNUM AS RNUM, t1.*               
+     FROM(                                     
+         SELECT *                              
+         FROM board                            
+         --검색조건                              
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+         ORDER BY mod_dt DESC                  
+     )t1                                       
+     WHERE ROWNUM <= (? * ( ? - 1 ) + ? )      
+ )A                                            
+ WHERE RNUM >= (? * ( ? - 1 ) + 1 )            
+
+2022-05-16 12:22:45,355 DEBUG [main] board.BoardDao    (BoardDao.java:236)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:22:45,362 DEBUG [main] board.BoardDao    (BoardDao.java:297)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:22:45,364 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:22:45,364 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:22:45,365 DEBUG [main] board.BoardMain   (BoardMain.java:138)     - -----------------------
+2022-05-16 12:22:45,367 DEBUG [main] board.BoardMain   (BoardMain.java:139)     - -목록 조회 실패-
+2022-05-16 12:22:45,367 DEBUG [main] board.BoardMain   (BoardMain.java:140)     - -----------------------
+2022-05-16 12:22:45,447 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@5bd03f44
+2022-05-16 12:22:45,447 DEBUG [main] board.BoardDao    (BoardDao.java:67)     - query: 
+ SELECT COUNT(*) AS total_cnt 
+ FROM board                   
+ -- 검색조건                    
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+
+2022-05-16 12:22:45,447 DEBUG [main] board.BoardDao    (BoardDao.java:68)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:22:45,450 DEBUG [main] board.BoardDao    (BoardDao.java:98)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:22:45,450 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:22:45,450 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:22:45,452 DEBUG [main] board.BoardMain   (BoardMain.java:151)     - ------------------------
+2022-05-16 12:22:45,452 DEBUG [main] board.BoardMain   (BoardMain.java:152)     - --총 글수: 0
+2022-05-16 12:22:45,452 DEBUG [main] board.BoardMain   (BoardMain.java:153)     - ------------------------
+2022-05-16 12:23:35,288 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@735f7ae5
+2022-05-16 12:23:35,291 DEBUG [main] board.BoardDao    (BoardDao.java:388)     - query: 
+ DELETE FROM board 
+ WHERE seq = ?	  
+
+2022-05-16 12:23:35,291 DEBUG [main] board.BoardDao    (BoardDao.java:389)     - param: BoardVO [seq=900001, title=제목_900001, contents=내용_900001, readCnt=0, regDt=, regId=pcwk, modDt=, modId=pcwk, toString()=DTO [no=0]]
+2022-05-16 12:23:35,425 DEBUG [main] board.BoardDao    (BoardDao.java:403)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:23:35,429 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:23:35,429 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:23:35,431 DEBUG [main] board.BoardMain   (BoardMain.java:39)     - ------------------------
+2022-05-16 12:23:35,431 DEBUG [main] board.BoardMain   (BoardMain.java:40)     - --삭제 실패--
+2022-05-16 12:23:35,431 DEBUG [main] board.BoardMain   (BoardMain.java:41)     - ------------------------
+2022-05-16 12:23:35,523 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@4a22f9e2
+2022-05-16 12:23:35,523 DEBUG [main] board.BoardDao    (BoardDao.java:235)     - query: 
+ SELECT                                        
+     A.seq,                                    
+     A.rnum AS NUM,                            
+     A.title,                                  
+     A.read_cnt,                 	          
+     TO_CHAR(A.mod_dt,'YYYY/MM/DD') AS mod_dt, 
+     A.mod_id                                  
+ FROM(                                         
+     SELECT ROWNUM AS RNUM, t1.*               
+     FROM(                                     
+         SELECT *                              
+         FROM board                            
+         --검색조건                              
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+         ORDER BY mod_dt DESC                  
+     )t1                                       
+     WHERE ROWNUM <= (? * ( ? - 1 ) + ? )      
+ )A                                            
+ WHERE RNUM >= (? * ( ? - 1 ) + 1 )            
+
+2022-05-16 12:23:35,523 DEBUG [main] board.BoardDao    (BoardDao.java:236)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:23:35,534 DEBUG [main] board.BoardDao    (BoardDao.java:297)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:23:35,536 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:23:35,536 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:23:35,538 DEBUG [main] board.BoardMain   (BoardMain.java:138)     - -----------------------
+2022-05-16 12:23:35,540 DEBUG [main] board.BoardMain   (BoardMain.java:139)     - -목록 조회 실패-
+2022-05-16 12:23:35,541 DEBUG [main] board.BoardMain   (BoardMain.java:140)     - -----------------------
+2022-05-16 12:23:35,636 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@5bd03f44
+2022-05-16 12:23:35,636 DEBUG [main] board.BoardDao    (BoardDao.java:67)     - query: 
+ SELECT COUNT(*) AS total_cnt 
+ FROM board                   
+ -- 검색조건                    
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+
+2022-05-16 12:23:35,636 DEBUG [main] board.BoardDao    (BoardDao.java:68)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:23:35,639 DEBUG [main] board.BoardDao    (BoardDao.java:98)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:23:35,640 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:23:35,640 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:23:35,642 DEBUG [main] board.BoardMain   (BoardMain.java:151)     - ------------------------
+2022-05-16 12:23:35,643 DEBUG [main] board.BoardMain   (BoardMain.java:152)     - --총 글수: 0
+2022-05-16 12:23:35,643 DEBUG [main] board.BoardMain   (BoardMain.java:153)     - ------------------------
+2022-05-16 12:25:41,531 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@735f7ae5
+2022-05-16 12:25:41,534 DEBUG [main] board.BoardDao    (BoardDao.java:388)     - query: 
+ DELETE FROM board 
+ WHERE seq = ?	  
+
+2022-05-16 12:25:41,534 DEBUG [main] board.BoardDao    (BoardDao.java:389)     - param: BoardVO [seq=900001, title=제목_900001, contents=내용_900001, readCnt=0, regDt=, regId=pcwk, modDt=, modId=pcwk, toString()=DTO [no=0]]
+2022-05-16 12:25:41,648 DEBUG [main] board.BoardDao    (BoardDao.java:403)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:25:41,651 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:25:41,652 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:25:41,653 DEBUG [main] board.BoardMain   (BoardMain.java:39)     - ------------------------
+2022-05-16 12:25:41,653 DEBUG [main] board.BoardMain   (BoardMain.java:40)     - --삭제 실패--
+2022-05-16 12:25:41,653 DEBUG [main] board.BoardMain   (BoardMain.java:41)     - ------------------------
+2022-05-16 12:25:41,723 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@4a22f9e2
+2022-05-16 12:25:41,723 DEBUG [main] board.BoardDao    (BoardDao.java:235)     - query: 
+ SELECT                                        
+     A.seq,                                    
+     A.rnum AS NUM,                            
+     A.title,                                  
+     A.read_cnt,                 	          
+     TO_CHAR(A.mod_dt,'YYYY/MM/DD') AS mod_dt, 
+     A.mod_id                                  
+ FROM(                                         
+     SELECT ROWNUM AS RNUM, t1.*               
+     FROM(                                     
+         SELECT *                              
+         FROM board                            
+         --검색조건                              
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+         ORDER BY mod_dt DESC                  
+     )t1                                       
+     WHERE ROWNUM <= (? * ( ? - 1 ) + ? )      
+ )A                                            
+ WHERE RNUM >= (? * ( ? - 1 ) + 1 )            
+
+2022-05-16 12:25:41,724 DEBUG [main] board.BoardDao    (BoardDao.java:236)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:25:41,733 DEBUG [main] board.BoardDao    (BoardDao.java:297)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:25:41,734 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:25:41,735 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:25:41,736 DEBUG [main] board.BoardMain   (BoardMain.java:138)     - -----------------------
+2022-05-16 12:25:41,739 DEBUG [main] board.BoardMain   (BoardMain.java:139)     - -목록 조회 실패-
+2022-05-16 12:25:41,739 DEBUG [main] board.BoardMain   (BoardMain.java:140)     - -----------------------
+2022-05-16 12:25:41,821 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@5bd03f44
+2022-05-16 12:25:41,821 DEBUG [main] board.BoardDao    (BoardDao.java:67)     - query: 
+ SELECT COUNT(*) AS total_cnt 
+ FROM board                   
+ -- 검색조건                    
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+
+2022-05-16 12:25:41,822 DEBUG [main] board.BoardDao    (BoardDao.java:68)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:25:41,824 DEBUG [main] board.BoardDao    (BoardDao.java:98)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:25:41,825 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:25:41,825 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:25:41,826 DEBUG [main] board.BoardMain   (BoardMain.java:151)     - ------------------------
+2022-05-16 12:25:41,826 DEBUG [main] board.BoardMain   (BoardMain.java:152)     - --총 글수: 0
+2022-05-16 12:25:41,827 DEBUG [main] board.BoardMain   (BoardMain.java:153)     - ------------------------
+2022-05-16 12:32:17,880 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@735f7ae5
+2022-05-16 12:32:17,890 DEBUG [main] board.BoardDao    (BoardDao.java:388)     - query: 
+ DELETE FROM board 
+ WHERE seq = ?	  
+
+2022-05-16 12:32:17,892 DEBUG [main] board.BoardDao    (BoardDao.java:389)     - param: BoardVO [seq=900001, title=제목_900001, contents=내용_900001, readCnt=0, regDt=, regId=pcwk, modDt=, modId=pcwk, toString()=DTO [no=0]]
+2022-05-16 12:32:18,033 DEBUG [main] board.BoardDao    (BoardDao.java:403)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:32:18,035 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:32:18,035 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:32:18,037 DEBUG [main] board.BoardMain   (BoardMain.java:39)     - ------------------------
+2022-05-16 12:32:18,037 DEBUG [main] board.BoardMain   (BoardMain.java:40)     - --삭제 실패--
+2022-05-16 12:32:18,037 DEBUG [main] board.BoardMain   (BoardMain.java:41)     - ------------------------
+2022-05-16 12:32:18,099 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@4a22f9e2
+2022-05-16 12:32:18,099 DEBUG [main] board.BoardDao    (BoardDao.java:235)     - query: 
+ SELECT                                        
+     A.seq,                                    
+     A.rnum AS NUM,                            
+     A.title,                                  
+     A.read_cnt,                 	          
+     TO_CHAR(A.mod_dt,'YYYY/MM/DD') AS mod_dt, 
+     A.mod_id                                  
+ FROM(                                         
+     SELECT ROWNUM AS RNUM, t1.*               
+     FROM(                                     
+         SELECT *                              
+         FROM board                            
+         --검색조건                              
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+         ORDER BY mod_dt DESC                  
+     )t1                                       
+     WHERE ROWNUM <= (? * ( ? - 1 ) + ? )      
+ )A                                            
+ WHERE RNUM >= (? * ( ? - 1 ) + 1 )            
+
+2022-05-16 12:32:18,099 DEBUG [main] board.BoardDao    (BoardDao.java:236)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:32:18,104 DEBUG [main] board.BoardDao    (BoardDao.java:297)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:32:18,105 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:32:18,105 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:32:18,106 DEBUG [main] board.BoardMain   (BoardMain.java:138)     - -----------------------
+2022-05-16 12:32:18,108 DEBUG [main] board.BoardMain   (BoardMain.java:139)     - -목록 조회 실패-
+2022-05-16 12:32:18,108 DEBUG [main] board.BoardMain   (BoardMain.java:140)     - -----------------------
+2022-05-16 12:32:18,182 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@5bd03f44
+2022-05-16 12:32:18,183 DEBUG [main] board.BoardDao    (BoardDao.java:67)     - query: 
+ SELECT COUNT(*) AS total_cnt 
+ FROM board                   
+ -- 검색조건                    
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+
+2022-05-16 12:32:18,183 DEBUG [main] board.BoardDao    (BoardDao.java:68)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:32:18,186 DEBUG [main] board.BoardDao    (BoardDao.java:98)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:32:18,187 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:32:18,188 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:32:18,189 DEBUG [main] board.BoardMain   (BoardMain.java:151)     - ------------------------
+2022-05-16 12:32:18,189 DEBUG [main] board.BoardMain   (BoardMain.java:152)     - --총 글수: 0
+2022-05-16 12:32:18,190 DEBUG [main] board.BoardMain   (BoardMain.java:153)     - ------------------------
+2022-05-16 12:37:03,838 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@735f7ae5
+2022-05-16 12:37:03,841 DEBUG [main] board.BoardDao    (BoardDao.java:388)     - query: 
+ DELETE FROM board 
+ WHERE seq = ?	  
+
+2022-05-16 12:37:03,841 DEBUG [main] board.BoardDao    (BoardDao.java:389)     - param: BoardVO [seq=900001, title=제목_900001, contents=내용_900001, readCnt=0, regDt=, regId=pcwk, modDt=, modId=pcwk, toString()=DTO [no=0]]
+2022-05-16 12:37:03,943 DEBUG [main] board.BoardDao    (BoardDao.java:403)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:37:03,945 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:37:03,945 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:37:03,947 DEBUG [main] board.BoardMain   (BoardMain.java:39)     - ------------------------
+2022-05-16 12:37:03,947 DEBUG [main] board.BoardMain   (BoardMain.java:40)     - --삭제 실패--
+2022-05-16 12:37:03,947 DEBUG [main] board.BoardMain   (BoardMain.java:41)     - ------------------------
+2022-05-16 12:37:04,007 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@4a22f9e2
+2022-05-16 12:37:04,007 DEBUG [main] board.BoardDao    (BoardDao.java:235)     - query: 
+ SELECT                                        
+     A.seq,                                    
+     A.rnum AS NUM,                            
+     A.title,                                  
+     A.read_cnt,                 	          
+     TO_CHAR(A.mod_dt,'YYYY/MM/DD') AS mod_dt, 
+     A.mod_id                                  
+ FROM(                                         
+     SELECT ROWNUM AS RNUM, t1.*               
+     FROM(                                     
+         SELECT *                              
+         FROM board                            
+         --검색조건                              
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+         ORDER BY mod_dt DESC                  
+     )t1                                       
+     WHERE ROWNUM <= (? * ( ? - 1 ) + ? )      
+ )A                                            
+ WHERE RNUM >= (? * ( ? - 1 ) + 1 )            
+
+2022-05-16 12:37:04,007 DEBUG [main] board.BoardDao    (BoardDao.java:236)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:37:04,013 DEBUG [main] board.BoardDao    (BoardDao.java:297)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:37:04,014 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:37:04,014 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:37:04,015 DEBUG [main] board.BoardMain   (BoardMain.java:138)     - -----------------------
+2022-05-16 12:37:04,017 DEBUG [main] board.BoardMain   (BoardMain.java:139)     - -목록 조회 실패-
+2022-05-16 12:37:04,017 DEBUG [main] board.BoardMain   (BoardMain.java:140)     - -----------------------
+2022-05-16 12:37:04,102 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@5bd03f44
+2022-05-16 12:37:04,103 DEBUG [main] board.BoardDao    (BoardDao.java:67)     - query: 
+ SELECT COUNT(*) AS total_cnt 
+ FROM board                   
+ -- 검색조건                    
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+
+2022-05-16 12:37:04,103 DEBUG [main] board.BoardDao    (BoardDao.java:68)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:37:04,106 DEBUG [main] board.BoardDao    (BoardDao.java:98)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:37:04,107 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:37:04,107 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:37:04,109 DEBUG [main] board.BoardMain   (BoardMain.java:151)     - ------------------------
+2022-05-16 12:37:04,109 DEBUG [main] board.BoardMain   (BoardMain.java:152)     - --총 글수: 0
+2022-05-16 12:37:04,109 DEBUG [main] board.BoardMain   (BoardMain.java:153)     - ------------------------
+2022-05-16 12:37:56,835 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@735f7ae5
+2022-05-16 12:37:56,839 DEBUG [main] board.BoardDao    (BoardDao.java:388)     - query: 
+ DELETE FROM board 
+ WHERE seq = ?	  
+
+2022-05-16 12:37:56,840 DEBUG [main] board.BoardDao    (BoardDao.java:389)     - param: BoardVO [seq=900001, title=제목_900001, contents=내용_900001, readCnt=0, regDt=, regId=pcwk, modDt=, modId=pcwk, toString()=DTO [no=0]]
+2022-05-16 12:37:57,006 DEBUG [main] board.BoardDao    (BoardDao.java:403)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:37:57,011 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:37:57,011 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:37:57,013 DEBUG [main] board.BoardMain   (BoardMain.java:39)     - ------------------------
+2022-05-16 12:37:57,014 DEBUG [main] board.BoardMain   (BoardMain.java:40)     - --삭제 실패--
+2022-05-16 12:37:57,014 DEBUG [main] board.BoardMain   (BoardMain.java:41)     - ------------------------
+2022-05-16 12:37:57,132 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@4a22f9e2
+2022-05-16 12:37:57,132 DEBUG [main] board.BoardDao    (BoardDao.java:235)     - query: 
+ SELECT                                        
+     A.seq,                                    
+     A.rnum AS NUM,                            
+     A.title,                                  
+     A.read_cnt,                 	          
+     TO_CHAR(A.mod_dt,'YYYY/MM/DD') AS mod_dt, 
+     A.mod_id                                  
+ FROM(                                         
+     SELECT ROWNUM AS RNUM, t1.*               
+     FROM(                                     
+         SELECT *                              
+         FROM board                            
+         --검색조건                              
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+         ORDER BY mod_dt DESC                  
+     )t1                                       
+     WHERE ROWNUM <= (? * ( ? - 1 ) + ? )      
+ )A                                            
+ WHERE RNUM >= (? * ( ? - 1 ) + 1 )            
+
+2022-05-16 12:37:57,134 DEBUG [main] board.BoardDao    (BoardDao.java:236)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:37:57,149 DEBUG [main] board.BoardDao    (BoardDao.java:297)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:37:57,152 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:37:57,153 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:37:57,155 DEBUG [main] board.BoardMain   (BoardMain.java:138)     - -----------------------
+2022-05-16 12:37:57,159 DEBUG [main] board.BoardMain   (BoardMain.java:139)     - -목록 조회 실패-
+2022-05-16 12:37:57,159 DEBUG [main] board.BoardMain   (BoardMain.java:140)     - -----------------------
+2022-05-16 12:37:57,288 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@5bd03f44
+2022-05-16 12:37:57,289 DEBUG [main] board.BoardDao    (BoardDao.java:67)     - query: 
+ SELECT COUNT(*) AS total_cnt 
+ FROM board                   
+ -- 검색조건                    
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+
+2022-05-16 12:37:57,289 DEBUG [main] board.BoardDao    (BoardDao.java:68)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:37:57,291 DEBUG [main] board.BoardDao    (BoardDao.java:98)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:37:57,293 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:37:57,293 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:37:57,295 DEBUG [main] board.BoardMain   (BoardMain.java:151)     - ------------------------
+2022-05-16 12:37:57,295 DEBUG [main] board.BoardMain   (BoardMain.java:152)     - --총 글수: 0
+2022-05-16 12:37:57,295 DEBUG [main] board.BoardMain   (BoardMain.java:153)     - ------------------------
+2022-05-16 12:39:22,583 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@735f7ae5
+2022-05-16 12:39:22,589 DEBUG [main] board.BoardDao    (BoardDao.java:388)     - query: 
+ DELETE FROM board 
+ WHERE seq = ?	  
+
+2022-05-16 12:39:22,589 DEBUG [main] board.BoardDao    (BoardDao.java:389)     - param: BoardVO [seq=900001, title=제목_900001, contents=내용_900001, readCnt=0, regDt=, regId=pcwk, modDt=, modId=pcwk, toString()=DTO [no=0]]
+2022-05-16 12:39:22,779 DEBUG [main] board.BoardDao    (BoardDao.java:400)     - flag: 0
+2022-05-16 12:39:22,783 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:39:22,784 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:39:22,789 DEBUG [main] board.BoardMain   (BoardMain.java:39)     - ------------------------
+2022-05-16 12:39:22,789 DEBUG [main] board.BoardMain   (BoardMain.java:40)     - --삭제 실패--
+2022-05-16 12:39:22,789 DEBUG [main] board.BoardMain   (BoardMain.java:41)     - ------------------------
+2022-05-16 12:39:22,967 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@4c9f8c13
+2022-05-16 12:39:22,968 DEBUG [main] board.BoardDao    (BoardDao.java:235)     - query: 
+ SELECT                                        
+     A.seq,                                    
+     A.rnum AS NUM,                            
+     A.title,                                  
+     A.read_cnt,                 	          
+     TO_CHAR(A.mod_dt,'YYYY/MM/DD') AS mod_dt, 
+     A.mod_id                                  
+ FROM(                                         
+     SELECT ROWNUM AS RNUM, t1.*               
+     FROM(                                     
+         SELECT *                              
+         FROM board                            
+         --검색조건                              
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+         ORDER BY mod_dt DESC                  
+     )t1                                       
+     WHERE ROWNUM <= (? * ( ? - 1 ) + ? )      
+ )A                                            
+ WHERE RNUM >= (? * ( ? - 1 ) + 1 )            
+
+2022-05-16 12:39:22,969 DEBUG [main] board.BoardDao    (BoardDao.java:236)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:39:24,947 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:37)     - ResultSet자원 반납
+2022-05-16 12:39:24,947 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:39:24,948 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:39:24,961 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=7, title=제목7, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=1]]
+2022-05-16 12:39:24,964 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=70, title=제목70, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=2]]
+2022-05-16 12:39:24,965 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=71, title=제목71, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=3]]
+2022-05-16 12:39:24,965 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=72, title=제목72, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=4]]
+2022-05-16 12:39:24,966 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=73, title=제목73, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=5]]
+2022-05-16 12:39:24,966 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=74, title=제목74, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=6]]
+2022-05-16 12:39:24,966 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=75, title=제목75, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=7]]
+2022-05-16 12:39:24,967 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=76, title=제목76, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=8]]
+2022-05-16 12:39:24,967 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=77, title=제목77, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=9]]
+2022-05-16 12:39:24,967 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=78, title=제목78, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=10]]
+2022-05-16 12:39:25,163 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@489115ef
+2022-05-16 12:39:25,163 DEBUG [main] board.BoardDao    (BoardDao.java:67)     - query: 
+ SELECT COUNT(*) AS total_cnt 
+ FROM board                   
+ -- 검색조건                    
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+
+2022-05-16 12:39:25,163 DEBUG [main] board.BoardDao    (BoardDao.java:68)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:39:26,340 DEBUG [main] board.BoardDao    (BoardDao.java:94)     - totalCnt: 111111
+2022-05-16 12:39:26,340 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:37)     - ResultSet자원 반납
+2022-05-16 12:39:26,340 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:39:26,340 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:39:26,350 DEBUG [main] board.BoardMain   (BoardMain.java:147)     - ------------------------
+2022-05-16 12:39:26,351 DEBUG [main] board.BoardMain   (BoardMain.java:148)     - -총 글수(성공): 111111
+2022-05-16 12:39:26,351 DEBUG [main] board.BoardMain   (BoardMain.java:149)     - ------------------------
+2022-05-16 12:42:28,643 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@735f7ae5
+2022-05-16 12:42:28,649 DEBUG [main] board.BoardDao    (BoardDao.java:388)     - query: 
+ DELETE FROM board 
+ WHERE seq = ?	  
+
+2022-05-16 12:42:28,649 DEBUG [main] board.BoardDao    (BoardDao.java:389)     - param: BoardVO [seq=900001, title=제목_900001, contents=내용_900001, readCnt=0, regDt=, regId=pcwk, modDt=, modId=pcwk, toString()=DTO [no=0]]
+2022-05-16 12:42:28,778 DEBUG [main] board.BoardDao    (BoardDao.java:403)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:42:28,780 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:42:28,781 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:42:28,782 DEBUG [main] board.BoardMain   (BoardMain.java:39)     - ------------------------
+2022-05-16 12:42:28,782 DEBUG [main] board.BoardMain   (BoardMain.java:40)     - --삭제 실패--
+2022-05-16 12:42:28,782 DEBUG [main] board.BoardMain   (BoardMain.java:41)     - ------------------------
+2022-05-16 12:42:28,853 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@4a22f9e2
+2022-05-16 12:42:28,853 DEBUG [main] board.BoardDao    (BoardDao.java:235)     - query: 
+ SELECT                                        
+     A.seq,                                    
+     A.rnum AS NUM,                            
+     A.title,                                  
+     A.read_cnt,                 	          
+     TO_CHAR(A.mod_dt,'YYYY/MM/DD') AS mod_dt, 
+     A.mod_id                                  
+ FROM(                                         
+     SELECT ROWNUM AS RNUM, t1.*               
+     FROM(                                     
+         SELECT *                              
+         FROM board                            
+         --검색조건                              
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+         ORDER BY mod_dt DESC                  
+     )t1                                       
+     WHERE ROWNUM <= (? * ( ? - 1 ) + ? )      
+ )A                                            
+ WHERE RNUM >= (? * ( ? - 1 ) + 1 )            
+
+2022-05-16 12:42:28,853 DEBUG [main] board.BoardDao    (BoardDao.java:236)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:42:28,859 DEBUG [main] board.BoardDao    (BoardDao.java:297)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:42:28,859 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:42:28,859 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:42:28,860 DEBUG [main] board.BoardMain   (BoardMain.java:138)     - -----------------------
+2022-05-16 12:42:28,862 DEBUG [main] board.BoardMain   (BoardMain.java:139)     - -목록 조회 실패-
+2022-05-16 12:42:28,862 DEBUG [main] board.BoardMain   (BoardMain.java:140)     - -----------------------
+2022-05-16 12:42:28,912 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@5bd03f44
+2022-05-16 12:42:28,913 DEBUG [main] board.BoardDao    (BoardDao.java:67)     - query: 
+ SELECT COUNT(*) AS total_cnt 
+ FROM board                   
+ -- 검색조건                    
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+
+2022-05-16 12:42:28,913 DEBUG [main] board.BoardDao    (BoardDao.java:68)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:42:28,914 DEBUG [main] board.BoardDao    (BoardDao.java:98)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:42:28,915 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:42:28,915 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:42:28,916 DEBUG [main] board.BoardMain   (BoardMain.java:151)     - ------------------------
+2022-05-16 12:42:28,916 DEBUG [main] board.BoardMain   (BoardMain.java:152)     - --총 글수: 0
+2022-05-16 12:42:28,916 DEBUG [main] board.BoardMain   (BoardMain.java:153)     - ------------------------
+2022-05-16 12:43:13,752 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@735f7ae5
+2022-05-16 12:43:13,760 DEBUG [main] board.BoardDao    (BoardDao.java:388)     - query: 
+ DELETE FROM board 
+ WHERE seq = ?	  
+
+2022-05-16 12:43:13,760 DEBUG [main] board.BoardDao    (BoardDao.java:389)     - param: BoardVO [seq=900001, title=제목_900001, contents=내용_900001, readCnt=0, regDt=, regId=pcwk, modDt=, modId=pcwk, toString()=DTO [no=0]]
+2022-05-16 12:43:14,057 DEBUG [main] board.BoardDao    (BoardDao.java:400)     - flag: 0
+2022-05-16 12:43:14,062 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:43:14,063 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:43:14,075 DEBUG [main] board.BoardMain   (BoardMain.java:39)     - ------------------------
+2022-05-16 12:43:14,075 DEBUG [main] board.BoardMain   (BoardMain.java:40)     - --삭제 실패--
+2022-05-16 12:43:14,076 DEBUG [main] board.BoardMain   (BoardMain.java:41)     - ------------------------
+2022-05-16 12:43:14,267 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@4c9f8c13
+2022-05-16 12:43:14,267 DEBUG [main] board.BoardDao    (BoardDao.java:235)     - query: 
+ SELECT                                        
+     A.seq,                                    
+     A.rnum AS NUM,                            
+     A.title,                                  
+     A.read_cnt,                 	          
+     TO_CHAR(A.mod_dt,'YYYY/MM/DD') AS mod_dt, 
+     A.mod_id                                  
+ FROM(                                         
+     SELECT ROWNUM AS RNUM, t1.*               
+     FROM(                                     
+         SELECT *                              
+         FROM board                            
+         --검색조건                              
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+         ORDER BY mod_dt DESC                  
+     )t1                                       
+     WHERE ROWNUM <= (? * ( ? - 1 ) + ? )      
+ )A                                            
+ WHERE RNUM >= (? * ( ? - 1 ) + 1 )            
+
+2022-05-16 12:43:14,268 DEBUG [main] board.BoardDao    (BoardDao.java:236)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:43:16,051 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:37)     - ResultSet자원 반납
+2022-05-16 12:43:16,051 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:43:16,051 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:43:16,058 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=7, title=제목7, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=1]]
+2022-05-16 12:43:16,061 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=70, title=제목70, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=2]]
+2022-05-16 12:43:16,061 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=71, title=제목71, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=3]]
+2022-05-16 12:43:16,061 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=72, title=제목72, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=4]]
+2022-05-16 12:43:16,062 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=73, title=제목73, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=5]]
+2022-05-16 12:43:16,062 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=74, title=제목74, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=6]]
+2022-05-16 12:43:16,062 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=75, title=제목75, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=7]]
+2022-05-16 12:43:16,062 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=76, title=제목76, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=8]]
+2022-05-16 12:43:16,063 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=77, title=제목77, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=9]]
+2022-05-16 12:43:16,063 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=78, title=제목78, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=10]]
+2022-05-16 12:43:16,316 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@489115ef
+2022-05-16 12:43:16,317 DEBUG [main] board.BoardDao    (BoardDao.java:67)     - query: 
+ SELECT COUNT(*) AS total_cnt 
+ FROM board                   
+ -- 검색조건                    
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+
+2022-05-16 12:43:16,317 DEBUG [main] board.BoardDao    (BoardDao.java:68)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:43:17,015 DEBUG [main] board.BoardDao    (BoardDao.java:94)     - totalCnt: 111111
+2022-05-16 12:43:17,015 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:37)     - ResultSet자원 반납
+2022-05-16 12:43:17,016 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:43:17,016 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:43:17,267 DEBUG [main] board.BoardMain   (BoardMain.java:147)     - ------------------------
+2022-05-16 12:43:17,268 DEBUG [main] board.BoardMain   (BoardMain.java:148)     - -총 글수(성공): 111111
+2022-05-16 12:43:17,268 DEBUG [main] board.BoardMain   (BoardMain.java:149)     - ------------------------
+2022-05-16 12:45:41,892 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@735f7ae5
+2022-05-16 12:45:41,896 DEBUG [main] board.BoardDao    (BoardDao.java:388)     - query: 
+ DELETE FROM board 
+ WHERE seq = ?	  
+
+2022-05-16 12:45:41,896 DEBUG [main] board.BoardDao    (BoardDao.java:389)     - param: BoardVO [seq=900001, title=제목_900027, contents=내용_900001, readCnt=0, regDt=, regId=pcwk, modDt=, modId=pcwk, toString()=DTO [no=0]]
+2022-05-16 12:45:41,998 DEBUG [main] board.BoardDao    (BoardDao.java:403)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:45:42,000 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:45:42,001 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:45:42,002 DEBUG [main] board.BoardMain   (BoardMain.java:39)     - ------------------------
+2022-05-16 12:45:42,002 DEBUG [main] board.BoardMain   (BoardMain.java:40)     - --삭제 실패--
+2022-05-16 12:45:42,002 DEBUG [main] board.BoardMain   (BoardMain.java:41)     - ------------------------
+2022-05-16 12:45:42,086 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@4a22f9e2
+2022-05-16 12:45:42,087 DEBUG [main] board.BoardDao    (BoardDao.java:235)     - query: 
+ SELECT                                        
+     A.seq,                                    
+     A.rnum AS NUM,                            
+     A.title,                                  
+     A.read_cnt,                 	          
+     TO_CHAR(A.mod_dt,'YYYY/MM/DD') AS mod_dt, 
+     A.mod_id                                  
+ FROM(                                         
+     SELECT ROWNUM AS RNUM, t1.*               
+     FROM(                                     
+         SELECT *                              
+         FROM board                            
+         --검색조건                              
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+         ORDER BY mod_dt DESC                  
+     )t1                                       
+     WHERE ROWNUM <= (? * ( ? - 1 ) + ? )      
+ )A                                            
+ WHERE RNUM >= (? * ( ? - 1 ) + 1 )            
+
+2022-05-16 12:45:42,087 DEBUG [main] board.BoardDao    (BoardDao.java:236)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:45:42,095 DEBUG [main] board.BoardDao    (BoardDao.java:297)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:45:42,097 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:45:42,097 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:45:42,098 DEBUG [main] board.BoardMain   (BoardMain.java:138)     - -----------------------
+2022-05-16 12:45:42,102 DEBUG [main] board.BoardMain   (BoardMain.java:139)     - -목록 조회 실패-
+2022-05-16 12:45:42,103 DEBUG [main] board.BoardMain   (BoardMain.java:140)     - -----------------------
+2022-05-16 12:45:42,199 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@5bd03f44
+2022-05-16 12:45:42,199 DEBUG [main] board.BoardDao    (BoardDao.java:67)     - query: 
+ SELECT COUNT(*) AS total_cnt 
+ FROM board                   
+ -- 검색조건                    
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+
+2022-05-16 12:45:42,200 DEBUG [main] board.BoardDao    (BoardDao.java:68)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 12:45:42,202 DEBUG [main] board.BoardDao    (BoardDao.java:98)     - SQLException: ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+2022-05-16 12:45:42,203 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 12:45:42,203 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 12:45:42,204 DEBUG [main] board.BoardMain   (BoardMain.java:151)     - ------------------------
+2022-05-16 12:45:42,205 DEBUG [main] board.BoardMain   (BoardMain.java:152)     - --총 글수: 0
+2022-05-16 12:45:42,205 DEBUG [main] board.BoardMain   (BoardMain.java:153)     - ------------------------
+2022-05-16 15:38:28,641 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@735f7ae5
+2022-05-16 15:38:28,645 DEBUG [main] board.BoardDao    (BoardDao.java:388)     - query: 
+ DELETE FROM board 
+ WHERE seq = ?	  
+
+2022-05-16 15:38:28,645 DEBUG [main] board.BoardDao    (BoardDao.java:389)     - param: BoardVO [seq=900027, title=제목_900027, contents=내용_900027, readCnt=0, regDt=, regId=pcwk, modDt=, modId=pcwk, toString()=DTO [no=0]]
+2022-05-16 15:38:28,768 DEBUG [main] board.BoardDao    (BoardDao.java:400)     - flag: 1
+2022-05-16 15:38:28,771 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 15:38:28,772 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 15:38:28,774 DEBUG [main] board.BoardMain   (BoardMain.java:35)     - ------------------------
+2022-05-16 15:38:28,774 DEBUG [main] board.BoardMain   (BoardMain.java:36)     - --삭제 성공--
+2022-05-16 15:38:28,775 DEBUG [main] board.BoardMain   (BoardMain.java:37)     - ------------------------
+2022-05-16 15:38:31,243 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@4c9f8c13
+2022-05-16 15:38:31,243 DEBUG [main] board.BoardDao    (BoardDao.java:235)     - query: 
+ SELECT                                        
+     A.seq,                                    
+     A.rnum AS NUM,                            
+     A.title,                                  
+     A.read_cnt,                 	          
+     TO_CHAR(A.mod_dt,'YYYY/MM/DD') AS mod_dt, 
+     A.mod_id                                  
+ FROM(                                         
+     SELECT ROWNUM AS RNUM, t1.*               
+     FROM(                                     
+         SELECT *                              
+         FROM board                            
+         --검색조건                              
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+         ORDER BY mod_dt DESC                  
+     )t1                                       
+     WHERE ROWNUM <= (? * ( ? - 1 ) + ? )      
+ )A                                            
+ WHERE RNUM >= (? * ( ? - 1 ) + 1 )            
+
+2022-05-16 15:38:31,243 DEBUG [main] board.BoardDao    (BoardDao.java:236)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 15:38:32,960 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:37)     - ResultSet자원 반납
+2022-05-16 15:38:32,960 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 15:38:32,960 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 15:38:32,963 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=7, title=제목7, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=1]]
+2022-05-16 15:38:32,964 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=70, title=제목70, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=2]]
+2022-05-16 15:38:32,964 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=71, title=제목71, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=3]]
+2022-05-16 15:38:32,964 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=72, title=제목72, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=4]]
+2022-05-16 15:38:32,964 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=73, title=제목73, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=5]]
+2022-05-16 15:38:32,964 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=74, title=제목74, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=6]]
+2022-05-16 15:38:32,964 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=75, title=제목75, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=7]]
+2022-05-16 15:38:32,964 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=76, title=제목76, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=8]]
+2022-05-16 15:38:32,964 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=77, title=제목77, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=9]]
+2022-05-16 15:38:32,965 DEBUG [main] board.BoardMain   (BoardMain.java:135)     - vo: BoardVO [seq=78, title=제목78, contents=null, readCnt=0, regDt=null, regId=null, modDt=2022/04/13, modId=ADMIN, toString()=DTO [no=10]]
+2022-05-16 15:38:33,069 DEBUG [main] board.PConnection (PConnection.java:27)     - connection: oracle.jdbc.driver.T4CConnection@489115ef
+2022-05-16 15:38:33,070 DEBUG [main] board.BoardDao    (BoardDao.java:67)     - query: 
+ SELECT COUNT(*) AS total_cnt 
+ FROM board                   
+ -- 검색조건                    
+ WHERE title LIKE ? || '%' 
+ OR contents LIKE ? || '%' 
+
+2022-05-16 15:38:33,070 DEBUG [main] board.BoardDao    (BoardDao.java:68)     - param: SearchVO [searchDiv=40, searchWord=내용7, pageSize=10, pageNum=1, toString()=DTO [no=0]]
+2022-05-16 15:38:33,740 DEBUG [main] board.BoardDao    (BoardDao.java:94)     - totalCnt: 111111
+2022-05-16 15:38:33,740 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:37)     - ResultSet자원 반납
+2022-05-16 15:38:33,740 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:52)     - PreparedStatement자원 반납
+2022-05-16 15:38:33,740 DEBUG [main] board.JDBCUtil    (JDBCUtil.java:21)     - Connection자원 반납
+2022-05-16 15:38:33,743 DEBUG [main] board.BoardMain   (BoardMain.java:147)     - ------------------------
+2022-05-16 15:38:33,743 DEBUG [main] board.BoardMain   (BoardMain.java:148)     - -총 글수(성공): 111111
+2022-05-16 15:38:33,744 DEBUG [main] board.BoardMain   (BoardMain.java:149)     - ------------------------
