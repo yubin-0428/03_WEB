@@ -20,5 +20,17 @@
     <servlet-name>hello</servlet-name>
     <url-pattern>/hello.do</url-pattern>
   </servlet-mapping>
+
+  <context-param>
+    <description>파라메터 설정</description>
+    <param-name>pcwk</param-name>
+    <param-value>a few good man</param-value>
+  </context-param>
+  
+  <context-param>
+    <description>파라메터 설정</description>
+    <param-name>class</param-name>
+    <param-value>cClass</param-value>
+  </context-param>
   
 </web-app>
