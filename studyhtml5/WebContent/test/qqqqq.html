@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--스타일 시트 -->
+<style type="text/css">
+.leftbox {
+   
+    background-color: #1E90FF;
+    color: #fff;
+    text-align: center;
+}
+.buttonBox{
+ position: relative; 
+ left : 295px;
+}
+</style>
+
+<title>Insert title here</title>
+<!--자바스크립트 코드 -->
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+   
+       <h2></h2>
+       <hr/>
+       <!-- 버튼 -->
+       <div style="display: inline;" > 
+         <input type="button" value="등록" class="buttonBox">
+         <input type="button" value="목록" class="buttonBox">
+         <!-- <button>등록</button> -->
+       
+       <!--// 버튼 -------------------------------------------------------------->
+       
+       </div>
+       <!-- 입력 -->
+       
+        <table border="1"  >
+            <tr>
+                <td width="100" class="leftbox"><label for="title">제목</label></td>
+                <td width="200"><input maxlength="200" type="text" size="32" name="title" id="title"> </td>
+            </tr>
+            <tr>
+                <td class="leftbox"><label for="regId">등록자</label></td>
+                <td >admin1</td>
+            </tr>  
+            <tr>
+                 <td class="leftbox"><label for="regId">내용</label></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea  rows="10" cols="50" name="contents" id="contents"></textarea>
+                </td>
+            </tr>          
+        </table>
+       
+       <!--// 입력 -------------------------------------------------------------->
+       
+
+</body>
+</html>
