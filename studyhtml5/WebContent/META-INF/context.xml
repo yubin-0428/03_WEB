@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+                                 -->
+  <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+  <Resource name="jdbc/oracle" 
+    auth="Container" 
+    type="javax.sql.DataSource"
+    driverClassName="oracle.jdbc.driver.OracleDriver"
+    factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+    url="jdbc:oracle:thin:@192.168.3.101:1521:xe"
+    username="scott" 
+    password="pcwk" 
+    maxActive="100" 
+    maxIdle="30" 
+    maxWait="10000"
+    removeAbandoned="true" 
+    removeAbandonedTimeout="60"/> 
+</Context>

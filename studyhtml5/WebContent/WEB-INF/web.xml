@@ -33,4 +33,11 @@
     <param-value>cClass</param-value>
   </context-param>
   
+  <resource-ref>
+      <description>jdbc/oracle</description><!-- 리소스 설명 -->
+      <res-ref-name>jdbc/oracle</res-ref-name><!-- 리소스 이름(JNDI명) -->
+      <res-type>javax.sql.DataSource</res-type><!-- 리턴 Type -->
+      <res-auth>Container</res-auth><!-- 관리 계층 -->
+    </resource-ref>
+  
 </web-app>
